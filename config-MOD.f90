@@ -3414,6 +3414,8 @@ Write(2,*) "cp working-directory.txt ./ALMA"
 !
 ! --- Compilation: SLE
 !
+If(option_topo=='n') then
+!
 If(option_rfb=='n') then 
 !
 	if((ice_type=='ho').or.(ice_type=='po')) then 
@@ -3438,8 +3440,10 @@ else
 
 Endif	
 !
+Else ! If(option_topo=='y') then  
+!
 ! --- Compilation: Evolving coastlines 
-If(option_topo=='y') then  
+!
 !
 If(option_pxtopo=='y') then 
     Write(2,*) "echo '--- PX_TOPO.F90'" 
@@ -3455,8 +3459,19 @@ Write(2,*) CompileSmp, " rsl_cpx.f90 harmonics-smp.o -o rslcpx.exe"
 Write(2,*) "echo '--- SH_OF_VAROC.F90'" 
 Write(2,*) CompileSmp, " sh_of_varoc.f90 harmonics-smp.o -o shofvaroc.exe" 
 !
+!
+If(option_rfb=='n') then
+!
 Write(2,*) "echo '--- SLE_VAROC.F90'" 
 Write(2,*) CompileSmp, " sle_varoc.f90 harmonics-smp.o -o slevaroc.exe" 
+!
+Else
+!
+Write(2,*) "echo '--- SLE_VAROC_ROTAZ.F90'" 
+Write(2,*) CompileSmp, " sle_varoc_rotaz.f90 harmonics-smp.o -o slevaroc.exe" 
+!
+Endif
+!
 endif
 !
 ! --- Compilation: Ice sheets ----
