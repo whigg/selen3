@@ -99,7 +99,7 @@ Available modes:
 !
 ! --- Love numbers by TABOO [v-e analysis] 
 040    TABOO & rheological profile             'y' '3' '2' 'vsc_VM2r.dat'                  
-045    You need a tidal analysis?                     'y'
+045    You need a tidal analysis?                     'n'
 !
 !-----> More TABOO rheological models        
 !       	       :'3' '8'  'vsc_BENCH.dat' : 
@@ -140,9 +140,9 @@ Available modes:
 !
 !
 ====> POLAR MOTION (by normal modes) ------------------------------------------
-007    Polar Motion Transfer function                         'y'         
+007    Polar Motion Transfer function                         'n'         
 !!!!!!!!008    Direct effect of load on PM 'n'       
-009    Direct and indirect effect (rotational feedback)                'y'          
+009    Direct and indirect effect (rotational feedback)                'n'          
 !
 ====> COASTLINES --------------------------------------------------------------
 005    Evolving coastlines (y/n), topo data & iterations       'n' 'etopo5.xyz'  '3' 
@@ -196,7 +196,7 @@ Available modes:
 !
 !
 !
-030    Prepare a new SH ice file?   'n' 'ice5g-l64.dat'
+030    Prepare a new SH ice file?   'y' 'ice5g-l64.dat'
 !
 !-----> Other data available:
 !
@@ -236,7 +236,7 @@ Available modes:
 !
 !
 ====> SPHERICAL HARMONICS at PIXELS (SH) --------------------------------------
-070    A new SH file                            'n'  'sh-r20-l64.bin'   
+070    A new SH file                            'y'  'sh-r20-l64.bin'   
 !
 !	     :sh-r44-l128.bin: 
 !  	    :sh-r44-l60.bin:	       
@@ -247,7 +247,7 @@ Available modes:
 !
 ====> PRESENT-DAY OCEAN FUNCTION (OF) -----------------------------------------
 075    Realistic or Zonal (r/z) OF              'r'  '25.' 
-080    A new OF SH decomposition  (y/n)           'n'  'of-l64.dat'
+080    A new OF SH decomposition  (y/n)           'y'  'of-l64.dat'
 !  		
 !               :of-l128.dat:						  
 !                :of-l60.dat:
@@ -256,7 +256,7 @@ Available modes:
 !               :of-l72z.dat:
 ! 
 ====> REPOSITORY LABEL --------------------------------------------------------
-090    The depot name                               'TS02'
+090    The depot name                               'TS01'
 !
 !
 +- - - - - - - - - - - - - - - - - - - - - +
