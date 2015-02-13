@@ -1,0 +1,58 @@
+#
+# This file contains data for cities/towns located in "LOW ELEVATION COASTAL ZONES" 
+# 
+# The format is '1' as in the PSMSL data file "rlr-new-psmslR2.txt"
+#
+# See folder /LAVORI/LOW_ELEV_COASTAL_ZONES -------  GS April 25, 2012  ------  <<<<<<<<<<<<<<<
+#
+# Information contained here is as follows:                                      
+#
+# - column #1:  station id                                                       
+# - column #2:  station code                                                     
+# - column #3:  longitude E (deg)            
+# - column #4:  latitude N (deg)                                                 
+# - column #5:  First year in the series             !Dummy variable       
+# - column #6:  Last year in the series              !Dummy variable  
+# - column #7:  Valid years within the series        !Dummy variable                                  
+# - column #8:  Best-fit trend (by GS and GG)        !Dummy variable                               
+# - column #9:  Error on the trend (95% confidence)  !Dummy variable                               
+# - column #10: Station name                                                        
+#
+# *******************************************************************************
+# *******************************************************************************
+#                      
+ 2001   888    91.7833    22.3667  1888  1888   188    0.88    0.88    CHITTAGONG_Bangladesh         
+ 2002   888   271.8167    17.4833  1888  1888   188    0.88    0.88    BELIZE_Belize                 
+ 2003   888   121.4667    31.2503  1888  1888   188    0.88    0.88    SHANGAI_China                 
+ 2004   888   117.2000    39.0833  1888  1888   188    0.88    0.88    TIANJIN_China                 
+ 2005   888    42.5833    11.8167  1888  1888   188    0.88    0.88    DJIBOUTI_Djibouti             
+ 2006   888    29.9833    31.2333  1888  1888   188    0.88    0.88    ALEXANDRIA_Egypt              
+ 2007   888   358.3833    54.9667  1888  1888   188    0.88    0.88    NEWCASTLE-UT_GBritain         
+ 2008   888   359.8833    51.5000  1888  1888   188    0.88    0.88    LONDON_GBritain               
+ 2009   888   358.6000    50.9000  1888  1888   188    0.88    0.88    SOUTHAMPTON_GBritain          
+ 2010   888   357.4167    51.4500  1888  1888   188    0.88    0.88    BRISTOL_GBritain              
+ 2011   888   357.0167    53.4000  1888  1888   188    0.88    0.88    LIVERPOOL_GBritain            
+ 2012   888   300.8500     6.8000  1888  1888   188    0.88    0.88    GEORGETOWN_Guyana-&-Suriname  
+ 2013   888   304.8333     5.8167  1888  1888   188    0.88    0.88    PARAMARIBO_Guyana-&-Suriname  
+ 2014   888    88.3500    22.5667  1888  1888   188    0.88    0.88    CALCUTTA_India                
+ 2015   888    80.2333    13.0500  1888  1888   188    0.88    0.88    MADRAS_India                  
+ 2016   888    72.8667    19.0667  1888  1888   188    0.88    0.88    MUMBAI_India                  
+ 2017   888   106.8333     6.2000  1888  1888   188    0.88    0.88    JAKARTA_Indonesia             
+ 2018   888   141.3500    43.0500  1888  1888   188    0.88    0.88    SAPPORO_Japan                 
+ 2019   888   139.6833    35.6833  1888  1888   188    0.88    0.88    TOKIO_Japan                   
+ 2020   888   136.9000    35.1667  1888  1888   188    0.88    0.88    NAGOYA_Japan                  
+ 2021   888   135.5000    34.6833  1888  1888   188    0.88    0.88    OSAKA_Japan                   
+ 2022   888   100.4833    13.7500  1888  1888   188    0.88    0.88    BANGKOK_Thailand              
+ 2023   888   343.4333    13.4500  1888  1888   188    0.88    0.88    BANJUL_The-Gambia             
+ 2024   888     4.8833    52.3667  1888  1888   188    0.88    0.88    AMSTERDAM_The_Netherlands     
+ 2025   888   120.9833    14.5833  1888  1888   188    0.88    0.88    MANILA_The-Philippines        
+ 2026   888   123.8833    10.3000  1888  1888   188    0.88    0.88    CEBU_The-Philippines          
+ 2027   888   122.9667    10.6333  1888  1888   188    0.88    0.88    BACOLOD_The-Philippines       
+ 2028   888   286.0000    40.7000  1888  1888   188    0.88    0.88    NEW-YORK-CITY_E-USA           
+ 2029   888   288.9500    42.3500  1888  1888   188    0.88    0.88    BOSTON_E-USA                  
+ 2030   888   280.0833    32.7667  1888  1888   188    0.88    0.88    CHARLESTON_E-USA              
+ 2031   888   269.9333    29.9500  1888  1888   188    0.88    0.88    NEW-ORLEANS_E-USA             
+ 2032   888   279.7833    25.7833  1888  1888   188    0.88    0.88    MIAMI_E-USA                   
+ 2033   888   105.8500    21.0167  1888  1888   188    0.88    0.88    HANOI_Vietnam                 
+ 2034   888   106.6167    10.8167  1888  1888   188    0.88    0.88    HO-CHI-MINH-CITY_Vietnam      
+ 2035   888    12.3333    45.4333  1888  1888   188    0.88    0.88    VENICE_Italy                  

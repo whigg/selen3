@@ -1,0 +1,60 @@
+!------------------------------------------------------------------------------------
+! Data provided by Paola Tuccimei - Roma Tre Unieversity  - May 2013 
+!
+! * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+! May, 2013: 
+! This Table has been edited by Giorgio Spada 
+! 
+! 
+! * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+! About the FORMAT: 
+! Lines beginning with "!" are counted as headers. 
+! The data format is FREE, and defined as follows. All lines are mandatory. 
+! Record 1: A three digits integer (code)
+! Record 2: Site name with GPS Way Point code 
+! Record 3: a Reference or a comment 
+! Record 4: Lon, Lat, number of data observations in this set  
+! Record 5...: '2', counter, time  BP   (yrs), time error(yrs), asl (m), asl error (m)  
+! ... another code ... 
+! ------------------------------------------------------------------------------------- 
+! 0123456789012345678901234567890123456789 <<< do not exceed 40 characters! 
+!
+101        -------------------------------------- 101
+Site: Cova de Cala Varques A, Mallorca     
+Spain Phreatic overgrowths on speleothems (POS) - Data by Roma Tre
+ 3.174522  39.295775  4
+2   1   2800.   40.     0.0    0.2 
+2   2   2300.   1400.   0.0    0.2
+2   3   1500.   70.     0.0    0.2
+2   4   1100.   500.    0.0    0.2
+102        -------------------------------------- 102
+Site: Cova des Pas de Vallgornera
+Spain Phreatic overgrowths on speleothems (POS) - Data by Roma Tre
+2.522515   39.220101  5
+2   1   1940.  10.    0.0     0.2 
+2   2   1840.  20.    0.0     0.2 
+2   3   2020.  10.    0.0     0.2 
+2   4   1350.  10.    0.0     0.2 
+2   5   610.   10.    0.0     0.2 
+103        -------------------------------------- 103
+Site: Cova de sa Glea-Avenc des Camp des Pou
+Spain Phreatic overgrowths on speleothems (POS) - Data by Roma Tre
+3.170529   39.302143  3
+2   1    1003.   13.    0.0     0.2
+2   2    1062.   33.    0.0     0.2
+2   3    148.    10.    0.0     0.2
+104        -------------------------------------- 104
+Site: Cova des Rafal des Porcs
+Spain Phreatic overgrowths on speleothems (POS) - Data by Roma Tre
+3.055974   39.180498   2
+2   1    1228.   88.    0.0     0.2
+2   1    364.    37.    0.0     0.2
+105        --------------------------------------- 105
+Site: Cova de ses Tortugues
+Spain Phreatic overgrowths on speleothems (POS) - Data by Roma Tre
+3.174311   39.295396   5
+2   1   3721.   330.    0.0     0.2
+2   2   1333.   150.    0.0     0.2
+2   3   88.     2.      0.0     0.2 
+2   4   624.    44.     0.0     0.2 
+2   5   120.    19.     0.0     0.2

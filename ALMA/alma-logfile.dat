@@ -1,0 +1,103 @@
+  
+  # Done by alma.f90 (SELEN port) on: 2010.12.08 time: 13.06.19
+  
+  # Model : /Users/giorgiospada/LAVORI/WDS/SELEN32/VSC/vsca_SANT.dat                                            
+  
+  Litho thickness (km) =  70.
+  Earth radius (km) =  6371.
+  CMB radius (km) =  3480.
+  Number of mantle layers =  3
+  Total number of  layers =  5
+  
+  Radii of the interfaces from bottom to top, (km)
+   0 : 0. (Earth center)
+   1 : 3480. (CMB)
+   2 : 5701.
+   3 : 5951.
+   4 : 6301.
+   5 : 6371. (External surface)
+  
+  Rigidity of the layers from bottom to top, (*10^11 Pa)
+   0 : 0. (Core)
+   1 : 2.2834
+   2 : 1.0549
+   3 : 0.70363
+   4 : 0.50605 (Lithosphere)
+  
+  Density of the layers from bottom to top, (kg/m^3)
+   0 : 10750. (Core)
+   1 : 4978.
+   2 : 3871.
+   3 : 3438.
+   4 : 3037. (Lithosphere)
+  
+  NO density inversions found!
+  
+  Viscosity of the layers from bottom to top, (Pa.s)
+   0 : 0. (Core)
+   1 : 3.9999999999999995E+21
+   2 : 4.E+20
+   3 : 4.E+20
+   4 : Infinity (Lithosphere)
+  
+  The *density*   profile is reported on file "rho-r.dat" 
+  The *rigidity*  profile is reported on file "rig-r.dat" 
+  The *viscosity* profile is reported on file "vis-r.dat" 
+  
+  Mass of the Earth (kg) =  5.970293386615645E+24
+  
+>>>>> Average density of the Earth model is: 0.55116829E+04
+  
+  Gravity at the interfaces from bottom to top, (m/s^2)
+   0 : 0. 0. (Earth center)
+   1 : 3480. 10.452066 (CMB)
+   2 : 5701. 10.0201435
+   3 : 5951. 9.973487
+   4 : 6301. 9.849862
+   5 : 6371. 9.8108425 (External surface)
+  
+  Reference radius (m) = 6371000.
+  Reference density (kg/m^3) = 4978.
+  Reference rigidity (Pa) = 2.2834E+11
+  Reference time (s) = 3.15576E+10
+  
+  NORMALIZED Radii of the interfaces from bottom to top
+   0 : 0. (Earth center)
+   1 : 0.5462251 (CMB)
+   2 : 0.89483595
+   3 : 0.9340763
+   4 : 0.9890127
+   5 : 1. (External surface)
+  
+  NORMALIZED Rigidity of the layers from bottom to top
+   0 : 0. (Core)
+   1 : 1.
+   2 : 0.4619865
+   3 : 0.3081501
+   4 : 0.22162126 (Lithosphere)
+  
+  NORMALIZED Density of the layers from bottom to top
+   0 : 2.1595018 (Core)
+   1 : 1.
+   2 : 0.7776215
+   3 : 0.69063884
+   4 : 0.61008435 (Lithosphere)
+  
+  NORMALIZED Viscosity of the layers from bottom to top, (Pa.s)
+   0 : 0. (Core)
+   1 : 0.5551035926286166
+   2 : 0.05551035926286166
+   3 : 0.05551035926286166
+   4 : Infinity (Lithosphere)
+  
+  NORMALIZED Mass of the Earth =  4.63786353574071
+  
+  NORMALIZED Newton constant =  0.29381152808412225
+  
+  NORMALIZED Gravity at the interfaces from bottom to top
+   0 : 0. 0. (Earth center)
+   1 : 3480. 1.4517193 (CMB)
+   2 : 5701. 1.3917283
+   3 : 5951. 1.385248
+   4 : 6301. 1.3680774
+   5 : 6371. 1.3626578 (External surface)

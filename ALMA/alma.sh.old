@@ -1,0 +1,33 @@
+#
+# This is 'alma.sh' - Last modified by GS 6/5/2007 
+# 
+ECHO " +++++++++++++++++++++++++++++++++++++++++++++++"
+ECHO "                    A L M A                     "                 
+ECHO "     Version 1.0 - last modified June 2007      "                   
+ECHO "              Copyright (C) 2007                " 
+ECHO "  Giorgio Spada -Email: giorgio.spada@gmail.com "
+ECHO " +++++++++++++++++++++++++++++++++++++++++++++++"
+#
+#
+#
+#xlf90 -qsuppress=cmpmsg alma.f -c -f free -o alma.o
+#xlf90 -qsuppress=cmpmsg alma.o FMSAVE.o FMZM90.o FM.o -o alma.exe
+#
+#./alma.exe 
+
+ifort alma.f90 -c -o alma.o
+
+ifort  alma.o FMSAVE.o FMZM90.o FM.o -o alma.exe
+
+./alma.exe 
+
+
+ECHO ""
+ECHO " +++++++++++++++++++++++++++++++++++++++++++++++"
+ECHO "                    A L M A                     "                 
+ECHO "     Version 1.0 - last modified June 2007      "                   
+ECHO "              Copyright (C) 2007                " 
+ECHO "  Giorgio Spada -Email: giorgio.spada@gmail.com "
+ECHO " +++++++++++++++++++++++++++++++++++++++++++++++"
+#
+#

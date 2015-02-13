@@ -1,0 +1,53 @@
+
+!
+! - - - - - - - - - - - - - - - - - - - - - - - - -
+! This is file 'alma.inc' - Last change GS 6/6/07
+! - - - - - - - - - - - - - - - - - - - - - - - - - 
+!
+USE FMZM
+!
+ integer, parameter :: imode=2    ! imode=1: PREM-averaged model 
+!                                 !  " "  2: Multi-layer user-supplied model
+!				  !  " "  3: Linear rheological bodies (requires nla=1) 
+!	     	 
+! ~~~~~~~~~~~~~~~~~~~~~~~~~~ 
+! # Parameters for imode=1 
+! ~~~~~~~~~~~~~~~~~~~~~~~~~~
+ integer, parameter :: kv=3       ! Type of viscosity profile
+ integer, parameter :: ioc=0      ! PREM switch (1 oceanic, 0 continental)
+ real, parameter:: lth=120.e3     ! Lithospheric thickness (m)
+!
+! ~~~~~~~~~~~~~~~~~~~~~~~~~~
+! # Parameters for imode=2
+! ~~~~~~~~~~~~~~~~~~~~~~~~~~
+ character*30, parameter :: mod2='BJ97L.dat'   !'BJ97v.dat' User supplied model  'BRL06.dat' 'VSS96m.dat'     (28)
+!
+!
+! ~~~~~~~~~~~~~~~~~~~~~~~~~~
+! # Parameters for imode=3
+! ~~~~~~~~~~~~~~~~~~~~~~~~~~
+ character*30, parameter :: mod3='BJ97v.dat'   ! nla=2, user supplied model 
+ integer, parameter :: ire=7		       ! Mantle rheology (Table 7) 
+!
+!
+! ~~~~~~~~~~~~~~~~~~~~~
+! # General parameters
+! ~~~~~~~~~~~~~~~~~~~~~
+ integer, parameter :: nla=2                ! Number of mantle layers
+! 
+ character*1, parameter :: th='r'           ! 'h': Heaviside, 'r': ramp loading   
+!
+ integer, parameter :: iload=1                ! Load (1) or tidal (0) Ln's
+ integer, parameter :: l1=2, l2=128, ls=1   ! min and max degrees, and step 
+ integer, parameter :: ih=1, il=0, ik=0      ! Love numbers switches (0/1)
+!
+ integer, parameter :: nsd=64               ! Number of significant digits
+ integer, parameter :: ng=8                 ! Order of the Gaver method
+ integer, parameter :: isalz=1              ! Salzer acceleration (0/1)
+!
+ character*3, parameter :: tscale='lin'     ! toggle between lin/log time scale 
+ integer, parameter :: p=200                ! Time points minus one
+ real, parameter ::    m1=-3., m2=0.         ! Time range: 10^(m1:m2) kyrs m1=-3., m2=-0.30103 
+!
+! # End of file
+!

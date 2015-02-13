@@ -1,0 +1,56 @@
+! ------------------------------------------------------------------------------------
+! Data provided by Zanchetta project PRIN 2008  
+!
+! * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+! March, 2011    : This Table has been edited by Ilaria Isola. 
+! March 19, 2011:  The table has been re-edited by GS. Minor
+!                  modification "2" to indicate time BP... 
+! March 22, 2011:  Retouched with Gaia for the format description... 
+!		   Range of lon/lat made explicit 
+!             
+! 
+! * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+! About the FORMAT: 
+! Lines beginning with "!" are counted as headers. 
+! The data format is FREE, and defined as follows. All lines are mandatory. 
+! Record 1: A three digits integer (code)
+! Record 2: Site name with GPS Way Point code 
+! Record 3: a Reference or a comment 
+! Record 4: Lon, Lat, number of data observations in this set 
+!           Note: Lon range must be [0:360], Lat range [-90:90] 
+! Record 5...: '1', counter, time AD/BC (yrs), time error(yrs), RSL (m), RSL error (m) 
+! or, alternatively:  
+! Record 5...: '2', counter, time  BP   (yrs), time error(yrs), asl (m), asl error (m)  
+! ... another code ... 
+! Calibration data set: marine09.14c
+! Reimer et al. 2009  
+!
+!
+! ------------------------------------------------------------------------------------- 
+! 0123456789012345678901234567890123456789 <<< do not exceed 40 characters! 
+!
+101 -------------------------------------- 101
+Cabo Raso WP39 Aulacomya atra      
+our data         
+294.76  -44.34  1    
+2   1   6467.      40.    3.5     1
+102 -------------------------------------- 102
+Puerto Deseado WP344 Nacella deaurata      
+our data  
+294.14 -47.75   1
+2   1   499.       23.   -0.5     1
+103 -------------------------------------- 103
+Puerto Deseado WPi383         
+our data  
+294.14 -47.75  1 
+2   1   3383.       35.    3.5     1 
+104 -------------------------------------- 104
+Camarones Nord WPi441 littoral terrace       
+Schellmann & Radke 2010  
+294.27  -44.80   1
+2   1   5940.        42.      3.77     0.2
+105 -------------------------------------- 105
+Bahia Bustamante WP139 Protothaca ant.        
+our data  
+293.46 -45.14   1
+2   1   5630.    48.       12     2

@@ -1,0 +1,96 @@
+! --------------------------------------------------------------     Obtained from filter-VM2.f90 /LAVORI/VM2-CONVERSION/Peltier_Earth_VM2_l90.txt 
+!    radius,	       density,	      rigidity         viscosity     + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +               
+!     (m)	       (kg/m^3)	        (Pa)      	(Pa.s)       === NOTE NOTE: REGULARIZED density inversions in the shallow upper mantle ===
+! --------------------------------------------------------------     + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + + +
+   '6371.000E3'       '2.600E3'      '0.266E11'          '1E45'                Crust of VM2 - GS 28 3 10                                                                                                
+   '6360.500E3'       '2.750E3'      '0.266E11'          '1E45'                Crust of VM2 - GS 28 3 10                                                                                                
+   '6350.000E3'       '3.37E3'      '0.682E11'           '1E45'          Lithosphere of VM2 - GS 28 3 10  R                                                                                              
+   '6325.100E3'       '3.37E3'      '0.679E11'           '1E45'          Lithosphere of VM2 - GS 28 3 10  R                                                                                               
+   '6306.100E3'       '3.37E3'      '0.676E11'           '0.3E21'           Upper mantle of VM2 - GS 28 3 10  R                                                                                               
+   '6281.000E3'       '3.37E3'      '0.673E11'           '0.3E21'           Upper mantle of VM2 - GS 28 3 10  R                                                                                              
+   '6275.200E3'       '3.37E3'      '0.672E11'           '0.3E21'	    Upper mantle of VM2 - GS 28 3 10  R 											     
+   '6250.300E3'       '3.37E3'      '0.669E11'           '0.3E21'	    Upper mantle of VM2 - GS 28 3 10  R 											     
+   '6225.300E3'       '3.37E3'      '0.666E11'           '0.3E21'	    Upper mantle of VM2 - GS 28 3 10  R 											     
+   '6200.400E3'       '3.37E3'      '0.662E11'           '0.3E21'	    Upper mantle of VM2 - GS 28 3 10  R 											     
+   '6175.400E3'       '3.39E3'      '0.659E11'           '0.3E21' 	    Upper mantle of VM2 - GS 28 3 10												    
+   '6150.500E3'       '3.444E3'      '0.741E11'          '0.3E21'	    Upper mantle of VM2 - GS 28 3 10  											      
+   '6125.600E3'       '3.458E3'      '0.750E11'          '0.3E21'	    Upper mantle of VM2 - GS 28 3 10  											      
+   '6100.600E3'       '3.474E3'      '0.759E11'          '0.3E21'	    Upper mantle of VM2 - GS 28 3 10  											      
+   '6075.700E3'       '3.489E3'      '0.768E11'          '0.3E21'	    Upper mantle of VM2 - GS 28 3 10  											      
+   '6050.800E3'       '3.503E3'      '0.777E11'          '0.3E21'	    Upper mantle of VM2 - GS 28 3 10  											      
+   '6025.800E3'       '3.518E3'      '0.786E11'          '0.3E21'	    Upper mantle of VM2 - GS 28 3 10  											      
+   '6000.900E3'       '3.533E3'      '0.795E11'          '0.3E21'	    Upper mantle of VM2 - GS 28 3 10  											      
+   '5975.900E3'       '3.547E3'      '0.804E11'          '0.3E21'           Upper mantle of VM2 - GS 28 3 10                                                                                                
+   '5951.000E3'       '3.769E3'      '0.934E11'      '0.3E21'		Upper mantle of VM2 - GS 28 3 10 											
+   '5919.600E3'       '3.809E3'      '0.979E11'      '0.3E21'		Upper mantle of VM2 - GS 28 3 10 											 
+   '5888.300E3'       '3.848E3'      '1.025E11'      '0.3E21'		Upper mantle of VM2 - GS 28 3 10 											  
+   '5856.900E3'       '3.904E3'      '1.072E11'      '0.3E21'		Upper mantle of VM2 - GS 28 3 10 											  
+   '5800.000E3'       '3.955E3'      '1.162E11'      '0.3E21'		Upper mantle of VM2 - GS 28 3 10 											   
+   '5775.000E3'       '3.976E3'      '1.203E11'      '0.3E21'		Upper mantle of VM2 - GS 28 3 10 											    
+   '5750.000E3'       '3.984E3'      '1.218E11'      '0.3E21'		Upper mantle of VM2 - GS 28 3 10 											     
+   '5725.000E3'       '3.990E3'      '1.229E11'      '0.3E21'		Upper mantle of VM2 - GS 28 3 10 											       
+   '5700.000E3'       '4.389E3'      '1.550E11'      '30E21'	     Lower mantle of VM2 - GS 28 3 10												      
+   '5675.000E3'       '4.405E3'      '1.594E11'      '30E21'	     Lower mantle of VM2 - GS 28 3 10												      
+   '5650.000E3'       '4.420E3'      '1.638E11'      '30E21'	     Lower mantle of VM2 - GS 28 3 10												      
+   '5625.000E3'       '4.436E3'      '1.684E11'      '30E21'	     Lower mantle of VM2 - GS 28 3 10												      
+   '5600.000E3'       '4.458E3'      '1.727E11'      '30E21'	     Lower mantle of VM2 - GS 28 3 10												      
+   '5550.000E3'       '4.491E3'      '1.759E11'      '30E21'	     Lower mantle of VM2 - GS 28 3 10												      
+   '5492.300E3'       '4.518E3'      '1.795E11'      '30E21'	     Lower mantle of VM2 - GS 28 3 10												      
+   '5457.700E3'       '4.540E3'      '1.818E11'      '30E21'	     Lower mantle of VM2 - GS 28 3 10												      
+   '5423.100E3'       '4.560E3'      '1.839E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '5388.500E3'       '4.580E3'      '1.861E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '5353.900E3'       '4.600E3'      '1.882E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '5319.300E3'       '4.620E3'      '1.903E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '5284.700E3'       '4.640E3'      '1.924E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '5250.100E3'       '4.660E3'      '1.945E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '5215.500E3'       '4.680E3'      '1.966E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '5180.900E3'       '4.699E3'      '1.987E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '5146.200E3'       '4.719E3'      '2.009E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '5111.600E3'       '4.738E3'      '2.029E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '5077.000E3'       '4.757E3'      '2.050E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '5042.400E3'       '4.777E3'      '2.070E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '5007.800E3'       '4.795E3'      '2.091E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '4973.200E3'       '4.814E3'      '2.111E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '4938.600E3'       '4.832E3'      '2.132E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '4904.000E3'       '4.852E3'      '2.152E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '4869.400E3'       '4.870E3'      '2.172E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '4834.800E3'       '4.889E3'      '2.192E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '4800.200E3'       '4.907E3'      '2.213E11'      '30E21'	  Lower mantle of VM2 - GS 28 3 10												   
+   '4765.500E3'       '4.925E3'      '2.233E11'      '30E21'	  Lower mantle of VM2 - GS 28 3 10												   
+   '4730.900E3'       '4.944E3'      '2.252E11'      '30E21'	  Lower mantle of VM2 - GS 28 3 10												   
+   '4696.300E3'       '4.962E3'      '2.272E11'      '30E21'	  Lower mantle of VM2 - GS 28 3 10												   
+   '4661.700E3'       '4.980E3'      '2.293E11'      '30E21'	  Lower mantle of VM2 - GS 28 3 10												   
+   '4627.100E3'       '4.998E3'      '2.312E11'      '30E21'	  Lower mantle of VM2 - GS 28 3 10												   
+   '4592.500E3'       '5.016E3'      '2.332E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '4557.900E3'       '5.034E3'      '2.352E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '4523.300E3'       '5.052E3'      '2.372E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '4488.700E3'       '5.069E3'      '2.391E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '4454.100E3'       '5.087E3'      '2.411E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '4419.400E3'       '5.105E3'      '2.430E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '4384.800E3'       '5.122E3'      '2.450E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '4350.200E3'       '5.140E3'      '2.470E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '4315.600E3'       '5.157E3'      '2.490E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '4281.000E3'       '5.175E3'      '2.510E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '4246.400E3'       '5.193E3'      '2.530E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '4211.800E3'       '5.210E3'      '2.549E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '4177.200E3'       '5.227E3'      '2.570E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '4142.600E3'       '5.245E3'      '2.589E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '4108.000E3'       '5.262E3'      '2.609E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '4073.400E3'       '5.280E3'      '2.629E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '4038.700E3'       '5.297E3'      '2.650E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '4004.100E3'       '5.313E3'      '2.670E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '3969.500E3'       '5.331E3'      '2.690E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '3934.900E3'       '5.348E3'      '2.711E11'      '30E21'	   Lower mantle of VM2 - GS 28 3 10												    
+   '3900.300E3'       '5.365E3'      '2.731E11'      '30E21'	    Lower mantle of VM2 - GS 28 3 10												     
+   '3865.700E3'       '5.383E3'      '2.752E11'      '30E21'	    Lower mantle of VM2 - GS 28 3 10												     
+   '3831.100E3'       '5.400E3'      '2.772E11'      '30E21'	    Lower mantle of VM2 - GS 28 3 10												     
+   '3796.500E3'       '5.418E3'      '2.794E11'      '30E21'	    Lower mantle of VM2 - GS 28 3 10												     
+   '3761.900E3'       '5.435E3'      '2.814E11'      '30E21'	    Lower mantle of VM2 - GS 28 3 10												     
+   '3727.300E3'       '5.451E3'      '2.836E11'      '30E21'	    Lower mantle of VM2 - GS 28 3 10												     
+   '3692.700E3'       '5.469E3'      '2.857E11'      '30E21'	    Lower mantle of VM2 - GS 28 3 10												     
+   '3658.000E3'       '5.486E3'      '2.879E11'      '30E21'	    Lower mantle of VM2 - GS 28 3 10												     
+   '3623.400E3'       '5.503E3'      '2.901E11'      '30E21'	    Lower mantle of VM2 - GS 28 3 10												     
+   '3588.800E3'       '5.521E3'      '2.910E11'      '30E21'	    Lower mantle of VM2 - GS 28 3 10												     
+   '3554.200E3'       '5.538E3'      '2.918E11'      '30E21'	    Lower mantle of VM2 - GS 28 3 10												     
+   '3519.600E3'       '5.556E3'      '2.928E11'      '30E21'	    Lower mantle of VM2 - GS 28 3 10												     
+   '3485.500E3'      '10.982E3'        '0.00E0'        '0.00E0'      Core Core 

@@ -1,0 +1,522 @@
+64,66d63
+< ! Working directory 
+< 	character*100 wdir 
+< !
+70a68,69
+> !
+> !
+82,87c81
+< !
+<    Open (33,file='working-directory.txt',status='unknown')
+<    read (33,'(a100)')wdir 
+<    close(33)
+< !
+<    write(*,*) '    - alma.f90: Initializing the multiprecision routines' 
+---
+>    write(*,*) ' Initializing the multiprecision routines...' 
+90c84
+<    Write(*,*) '    - alma.f90: Building model: ', mod2   
+---
+>    Write(*,*) ' Building the model ...'  
+93c87
+<    Write(*,*) '    - alma.f90: Building the time steps'  
+---
+>    Write(*,*) ' Building the time steps ...'  
+96,98c90
+<    Write(*,*) '    - alma.f90: Setting the working directory'  
+< 
+< 
+---
+> !
+104c96
+<    if(mod(l,10)==0)write(*,*) '    - alma.f90: Harmonic degree =', l, 'of', l2  
+---
+>    write(*,*) ' Harmonic degree =', l, 'of', l2  
+145,147c137,138
+< 
+< ! write(*,*) ' Elapsed time (s) =', ssc-ssm
+< ! write(*,*) ' Time for each step (s) =', (ssc-ssm)/float(p+1)
+---
+>  write(*,*) ' Elapsed time (s) =', ssc-ssm
+>  write(*,*) ' Time for each step (s) =', (ssc-ssm)/float(p+1)
+154c145
+<  Write(*,*) '    - alma.f90: Writing the Love numbers ...'
+---
+>  Write(*,*) ' Writing the Love numbers ...'
+207,211c198,200
+< !write(*,'(a100)')wdir
+< !
+< 	if(ih==1) open(71,file=trim(adjustl(wdir))//'/ALMA/'//'h.dat',status='unknown') 
+< 	if(il==1) open(72,file=trim(adjustl(wdir))//'/ALMA/'//'l.dat',status='unknown') 
+< 	if(ik==1) open(73,file=trim(adjustl(wdir))//'/ALMA/'//'k.dat',status='unknown')
+---
+> 	if(ih==1) open(71,file='h.dat',status='unknown') 
+> 	if(il==1) open(72,file='l.dat',status='unknown') 
+> 	if(ik==1) open(73,file='k.dat',status='unknown')
+251,254c240,241
+< 
+< ! write(*,*) date(1:4),'.',date(5:6),'.',date(7:8),' ', & 
+< !            timc(1:2),'.',timc(3:4),'.',timc(5:6),'.',timc(8:10) 
+< !
+---
+>  write(*,*) date(1:4),'.',date(5:6),'.',date(7:8),' ', & 
+>             timc(1:2),'.',timc(3:4),'.',timc(5:6),'.',timc(8:10) 
+299c286
+< 		write(iu,*) ' # Done by alma.f90 (SELEN port) on: ', & 
+---
+> 		write(iu,*) ' # Done by alma.f on: ', & 
+328c315
+< 	        write(iu,*) ' # Time interval is from ',m1,'to ',m2, 'kyrs' 
+---
+> 	        write(iu,*) ' # Time interval is from 10^',m1,'to 10^',m2, 'kyrs' 
+371a359
+> 	TYPE(FM) DETTE
+415c403
+< 	IF(J==2) THEN     ! J=1 ---- > LOWER MANTLE ; J=2 ---- > UPPER MANTLE 
+---
+> 	IF(J==3) THEN     ! J=1 ---- > LOWER MANTLE ; J=3 ---- > UPPER MANTLE 
+443c431
+< 	vis2=vis(j)  
+---
+> 	vis2=0.1*vis(j)  
+518a507,517
+> 
+> !call print_sp(3, 3, pj2_www_cmb, 20)
+> !call determinant(3,pj2_www_cmb,dette)  
+> !write(*,*) to_dp(dette)
+> !read(*,*) 
+> 
+> 
+> 
+> 
+> 
+> 
+963,964c962
+< 	character*96 riga  
+<         character*20 date, timc	 
+---
+> 	character*96 riga   
+971,974c969,972
+< 	write(109,*) ' ' 
+< 	if(imode==1) write(109,*) ' Option #1: Uniform PREM layering' 
+< 	if(imode==2) write(109,*) ' Option #2: User-supplied model' 
+< 	if(imode==3) write(109,*) ' Option #3: User-supplied model' 		
+---
+> 	write(99,*) ' ' 
+> 	if(imode==1) write(99,*) ' Option #1: Uniform PREM layering' 
+> 	if(imode==2) write(99,*) ' Option #2: User-supplied model' 
+> 	if(imode==3) write(99,*) ' Option #3: User-supplied model' 		
+1154,1164c1152
+< 	open(109,file=trim(adjustl(wdir))//'/ALMA/'//'alma-logfile.dat',status='unknown')	 
+< !
+<  	call date_and_time (date, timc)
+< !
+< 	write(109,*) ' '	
+<         write(109,*) ' # Done by alma.f90 (SELEN port) on: ', & 
+<  				date(1:4),'.',date(5:6),'.',date(7:8),' time: ',&
+< 		        	timc(1:2),'.',timc(3:4),'.',timc(5:6)
+< 	write(109,*) ' '
+< 	write(109,*) ' # Model : ', mod2	
+< 	write(109,*) ' '
+---
+> 	 open(99,file='logfile.dat',status='unknown')
+1167c1155
+< 	call LOG_1
+---
+> 	 call LOG_1
+1236c1224
+< 	 close(109)   
+---
+> 	 close(99)   
+1271,1273c1259,1261
+< open(20,file=trim(adjustl(wdir))//'/ALMA/'//'rho-r.dat',status='unknown') 
+< open(30,file=trim(adjustl(wdir))//'/ALMA/'//'rig-r.dat',status='unknown')
+< open(40,file=trim(adjustl(wdir))//'/ALMA/'//'vis-r.dat',status='unknown')
+---
+> open(2,file='rho-r.dat',status='unknown') 
+> open(3,file='rig-r.dat',status='unknown')
+> open(4,file='vis-r.dat',status='unknown')
+1294,1296c1282,1284
+< write(20,*) raggio, densita,        rho_prem(raggio)
+< write(30,*) raggio, rigidita/1e11,  mu_prem(raggio)/1e11
+< write(40,*) raggio, viscosita,      visco(raggio)
+---
+> write(2,*) raggio, densita,        rho_prem(raggio)
+> write(3,*) raggio, rigidita/1e11,  mu_prem(raggio)/1e11
+> write(4,*) raggio, viscosita,      visco(raggio)
+1301c1289
+<  close(20); close(30); close(40)
+---
+>  close(2); close(3); close(4); close(5) 
+1321c1309
+< integer jj, k
+---
+> integer jj
+1327,1328d1314
+< !if(m1==0.)m1=1.e-6
+<  
+1330c1316
+<  MM1=M1 
+---
+>  MM1=M1
+1343a1330,1332
+> !		  
+>      call FMPWR(to_fm(10.), mm2, dm2)
+>      call FMPWR(to_fm(10.), mm1, dm1)
+1345,1353c1334,1337
+< 	k=0
+< 	do jj=0, int(m2) 
+< 		k=k+1
+< 		if(jj==0) then 
+< 			   time(k)=1.E-6 
+< 			  else 
+< 			   time(k)=float(jj) 
+< 		endif
+< 	enddo
+---
+>      do jj=1, p+1 
+>           time(jj)=dm1 + (jj-1.)*(dm2-dm1)/pp
+>      enddo      
+> !     		  
+1871a1856,1858
+> 
+>    USE MAIN_MODULE 
+> 
+1873c1860,1861
+<   real*8 x
+---
+>   TYPE(FM) x
+>   real*8 xx
+1875a1864,1865
+>   xx=to_dp(x)
+> !
+2042c2032
+< ! Prints the un-normalized model parameters on 'alma-logfile.dat'
+---
+> ! Prints the un-normalized model parameters on 'logfile.dat'
+2048d2037
+< 	type(fm)average_density, pi 
+2050,2055c2039,2044
+< if(imode==1)write(109,*) ' Thickness of each mantle layer (km) = ', to_sp(delta)/1000.0       
+< 	   write(109,*) ' Litho thickness (km) = ', to_sp(LT)/1000.0 
+< 	   write(109,*) ' Earth radius (km) = ', to_sp(r(nla+2))/1000.0 
+< 	   write(109,*) ' CMB radius (km) = ',   to_sp(r(1))/1000.0 
+<            write(109,*) ' Number of mantle layers = ', nla
+<            write(109,*) ' Total number of  layers = ', nla+2	
+---
+> if(imode==1)write(99,*) ' Thickness of each mantle layer (km) = ', to_sp(delta)/1000.0       
+> 	   write(99,*) ' Litho thickness (km) = ', to_sp(LT)/1000.0 
+> 	   write(99,*) ' Earth radius (km) = ', to_sp(r(nla+2))/1000.0 
+> 	   write(99,*) ' CMB radius (km) = ',   to_sp(r(1))/1000.0 
+>            write(99,*) ' Number of mantle layers = ', nla
+>            write(99,*) ' Total number of  layers = ', nla+2	
+2057,2060c2046,2049
+< write(109,*) ' '
+< write(109,*) ' Radii of the interfaces from bottom to top, (km)'
+<             i=0; write(109,*) ' ', i, ':', to_sp(rk(i)), '(Earth center)'
+<             i=1; write(109,*) ' ', i, ':', to_sp(rk(i)), '(CMB)'	
+---
+> write(99,*) ' '
+> write(99,*) ' Radii of the interfaces from bottom to top, (km)'
+>             i=0; write(99,*) ' ', i, ':', to_sp(rk(i)), '(Earth center)'
+>             i=1; write(99,*) ' ', i, ':', to_sp(rk(i)), '(CMB)'	
+2062c2051
+<         	 write(109,*) ' ', i, ':', to_sp(rk(i))
+---
+>         	 write(99,*) ' ', i, ':', to_sp(rk(i))
+2064c2053
+<         i=NLA+2; write(109,*) ' ', i, ':', to_sp(rk(i)), '(External surface)' 
+---
+>         i=NLA+2; write(99,*) ' ', i, ':', to_sp(rk(i)), '(External surface)' 
+2066,2068c2055,2057
+< write(109,*) ' '
+< write(109,*) ' Rigidity of the layers from bottom to top, (*10^11 Pa)' 
+<              i=0; write(109,*) ' ', i, ':', to_sp(rig(i))/1.e11, '(Core)'
+---
+> write(99,*) ' '
+> write(99,*) ' Rigidity of the layers from bottom to top, (*10^11 Pa)' 
+>              i=0; write(99,*) ' ', i, ':', to_sp(rig(i))/1.e11, '(Core)'
+2070c2059
+< 	          write(109,*) ' ', i, ':', to_sp(rig(i))/1.e11   
+---
+> 	          write(99,*) ' ', i, ':', to_sp(rig(i))/1.e11   
+2072c2061
+< 	 i=NLA+1; write(109,*) ' ', i, ':', to_sp(rig(i))/1.e11, '(Lithosphere)'	
+---
+> 	 i=NLA+1; write(99,*) ' ', i, ':', to_sp(rig(i))/1.e11, '(Lithosphere)'	
+2076,2078c2065,2067
+< !write(109,*) ' '
+< !write(109,*) ' "Lambda" of the layers from bottom to top, (*10^11 Pa)' 
+< !             i=0; write(109,*) ' ', i, ':', to_sp(lam(i))/1.e11, '(Core)'
+---
+> !write(99,*) ' '
+> !write(99,*) ' "Lambda" of the layers from bottom to top, (*10^11 Pa)' 
+> !             i=0; write(99,*) ' ', i, ':', to_sp(lam(i))/1.e11, '(Core)'
+2080c2069
+< !	          write(109,*) ' ', i, ':', to_sp(lam(i))/1.e11   
+---
+> !	          write(99,*) ' ', i, ':', to_sp(lam(i))/1.e11   
+2082c2071
+< !	 i=NLA+1; write(109,*) ' ', i, ':', to_sp(lam(i))/1.e11, '(Lithosphere)'	
+---
+> !	 i=NLA+1; write(99,*) ' ', i, ':', to_sp(lam(i))/1.e11, '(Lithosphere)'	
+2086,2088c2075,2077
+< write(109,*) ' '
+< write(109,*) ' Density of the layers from bottom to top, (kg/m^3)' 
+<              i=0; write(109,*) ' ', i, ':', to_sp(rho(i)), '(Core)'
+---
+> write(99,*) ' '
+> write(99,*) ' Density of the layers from bottom to top, (kg/m^3)' 
+>              i=0; write(99,*) ' ', i, ':', to_sp(rho(i)), '(Core)'
+2090c2079
+< 	          write(109,*) ' ', i, ':', to_sp(rho(i))    
+---
+> 	          write(99,*) ' ', i, ':', to_sp(rho(i))    
+2092c2081
+< 	 i=NLA+1; write(109,*) ' ', i, ':', to_sp(rho(i)), '(Lithosphere)'
+---
+> 	 i=NLA+1; write(99,*) ' ', i, ':', to_sp(rho(i)), '(Lithosphere)'
+2094c2083
+< write(109,*) ' '
+---
+> write(99,*) ' '
+2101c2090
+< 		write(109,*) ' Density inversion for layers ', i, i+1
+---
+> 		write(99,*) ' Density inversion for layers ', i, i+1
+2106c2095
+< 	if(onefound==0) write(109,*) ' NO density inversions found!'
+---
+> 	if(onefound==0) write(99,*) ' NO density inversions found!'
+2109,2111c2098,2100
+< write(109,*) ' '
+< write(109,*) ' Viscosity of the layers from bottom to top, (Pa.s)'	
+<              i=0; write(109,*) ' ', i, ':', to_dp(vis(i)), '(Core)'
+---
+> write(99,*) ' '
+> write(99,*) ' Viscosity of the layers from bottom to top, (Pa.s)'	
+>              i=0; write(99,*) ' ', i, ':', to_dp(vis(i)), '(Core)'
+2113c2102
+< 	          write(109,*) ' ', i, ':', to_dp(vis(i))    
+---
+> 	          write(99,*) ' ', i, ':', to_dp(vis(i))    
+2115c2104
+< 	 i=NLA+1; write(109,*) ' ', i, ':', ' Infinity', ' (Lithosphere)'
+---
+> 	 i=NLA+1; write(99,*) ' ', i, ':', ' Infinity', ' (Lithosphere)'
+2117,2135c2106,2117
+< write(109,*) ' '
+< write(109,*) ' The *density*   profile is reported on file "rho-r.dat" '
+< write(109,*) ' The *rigidity*  profile is reported on file "rig-r.dat" '
+< write(109,*) ' The *viscosity* profile is reported on file "vis-r.dat" '  
+< !
+< write(109,*) ' '
+< write(109,*) ' Mass of the Earth (kg) = ', to_dp(emass) 
+< !
+< !
+< pi = 2.0*asin(1.0)
+< average_density= emass/((4./3.)*pi*r(nla+2)**3) 
+< write(109,*) ' '
+< write(109,'(A5,A40,E14.8)') '>>>>>', 'Average density of the Earth model is: ', & 
+< 			  	      to_dp(average_density) 
+< !
+< write(109,*) ' '
+< write(109,*) ' Gravity at the interfaces from bottom to top, (m/s^2)'
+<             i=0; write(109,*) ' ', i, ':', to_sp(rk(i)), to_sp(gra(i)), '(Earth center)'
+<             i=1; write(109,*) ' ', i, ':', to_sp(rk(i)), to_sp(gra(i)), '(CMB)'	
+---
+> write(99,*) ' '
+> write(99,*) ' The *density*   profile is reported on file "rho-r.dat" '
+> write(99,*) ' The *rigidity*  profile is reported on file "rig-r.dat" '
+> write(99,*) ' The *viscosity* profile is reported on file "vis-r.dat" '  
+> !
+> 	 write(99,*) ' '
+> 	 write(99,*) ' Mass of the Earth (kg) = ', to_dp(emass) 
+> !
+> write(99,*) ' '
+> write(99,*) ' Gravity at the interfaces from bottom to top, (m/s^2)'
+>             i=0; write(99,*) ' ', i, ':', to_sp(rk(i)), to_sp(gra(i)), '(Earth center)'
+>             i=1; write(99,*) ' ', i, ':', to_sp(rk(i)), to_sp(gra(i)), '(CMB)'	
+2137c2119
+< 	         write(109,*) ' ', i, ':', to_sp(rk(i)), to_sp(gra(i))
+---
+> 	         write(99,*) ' ', i, ':', to_sp(rk(i)), to_sp(gra(i))
+2139c2121
+<             i=NLA+2; write(109,*) ' ', i, ':', to_sp(rk(i)), to_sp(gra(i)), '(External surface)'	 
+---
+>             i=NLA+2; write(99,*) ' ', i, ':', to_sp(rk(i)), to_sp(gra(i)), '(External surface)'	 
+2150c2132
+< ! Prints the normalized model parameters on 'alma-logfile.dat'
+---
+> ! Prints the normalized model parameters on 'logfile.dat'
+2157,2161c2139,2143
+< write(109,*) ' '
+< 	write(109,*) ' Reference radius (m) =', to_sp(ra0) 
+< 	write(109,*) ' Reference density (kg/m^3) =', to_sp(rho0) 
+< 	write(109,*) ' Reference rigidity (Pa) =', to_sp(rig0) 
+< 	write(109,*) ' Reference time (s) =', to_sp(t0) 
+---
+> write(99,*) ' '
+> 	write(99,*) ' Reference radius (m) =', to_sp(ra0) 
+> 	write(99,*) ' Reference density (kg/m^3) =', to_sp(rho0) 
+> 	write(99,*) ' Reference rigidity (Pa) =', to_sp(rig0) 
+> 	write(99,*) ' Reference time (s) =', to_sp(t0) 
+2164,2167c2146,2149
+< write(109,*) ' '
+< write(109,*) ' NORMALIZED Radii of the interfaces from bottom to top'
+<             i=0; write(109,*) ' ', i, ':', to_sp(r(i)), '(Earth center)'
+<             i=1; write(109,*) ' ', i, ':', to_sp(r(i)), '(CMB)'	
+---
+> write(99,*) ' '
+> write(99,*) ' NORMALIZED Radii of the interfaces from bottom to top'
+>             i=0; write(99,*) ' ', i, ':', to_sp(r(i)), '(Earth center)'
+>             i=1; write(99,*) ' ', i, ':', to_sp(r(i)), '(CMB)'	
+2169c2151
+<         	 write(109,*) ' ', i, ':', to_sp(r(i))
+---
+>         	 write(99,*) ' ', i, ':', to_sp(r(i))
+2171c2153
+<         i=NLA+2; write(109,*) ' ', i, ':', to_sp(r(i)), '(External surface)' 
+---
+>         i=NLA+2; write(99,*) ' ', i, ':', to_sp(r(i)), '(External surface)' 
+2173,2175c2155,2157
+< write(109,*) ' '
+< write(109,*) ' NORMALIZED Rigidity of the layers from bottom to top' 
+<              i=0; write(109,*) ' ', i, ':', to_sp(rig(i)), '(Core)'
+---
+> write(99,*) ' '
+> write(99,*) ' NORMALIZED Rigidity of the layers from bottom to top' 
+>              i=0; write(99,*) ' ', i, ':', to_sp(rig(i)), '(Core)'
+2177c2159
+< 	          write(109,*) ' ', i, ':', to_sp(rig(i))  
+---
+> 	          write(99,*) ' ', i, ':', to_sp(rig(i))  
+2179c2161
+< 	 i=NLA+1; write(109,*) ' ', i, ':', to_sp(rig(i)), '(Lithosphere)'	
+---
+> 	 i=NLA+1; write(99,*) ' ', i, ':', to_sp(rig(i)), '(Lithosphere)'	
+2182,2184c2164,2166
+< !write(109,*) ' '
+< !write(109,*) ' NORMALIZED "Lambda" of the layers from bottom to top' 
+< !             i=0; write(109,*) ' ', i, ':', to_sp(lam(i)), '(Core)'
+---
+> !write(99,*) ' '
+> !write(99,*) ' NORMALIZED "Lambda" of the layers from bottom to top' 
+> !             i=0; write(99,*) ' ', i, ':', to_sp(lam(i)), '(Core)'
+2186c2168
+< !	          write(109,*) ' ', i, ':', to_sp(lam(i))  
+---
+> !	          write(99,*) ' ', i, ':', to_sp(lam(i))  
+2188c2170
+< !	 i=NLA+1; write(109,*) ' ', i, ':', to_sp(lam(i)), '(Lithosphere)'
+---
+> !	 i=NLA+1; write(99,*) ' ', i, ':', to_sp(lam(i)), '(Lithosphere)'
+2192,2194c2174,2176
+< write(109,*) ' '
+< write(109,*) ' NORMALIZED Density of the layers from bottom to top' 
+<              i=0; write(109,*) ' ', i, ':', to_sp(rho(i)), '(Core)'
+---
+> write(99,*) ' '
+> write(99,*) ' NORMALIZED Density of the layers from bottom to top' 
+>              i=0; write(99,*) ' ', i, ':', to_sp(rho(i)), '(Core)'
+2196c2178
+< 	          write(109,*) ' ', i, ':', to_sp(rho(i))    
+---
+> 	          write(99,*) ' ', i, ':', to_sp(rho(i))    
+2198c2180
+< 	 i=NLA+1; write(109,*) ' ', i, ':', to_sp(rho(i)), '(Lithosphere)'
+---
+> 	 i=NLA+1; write(99,*) ' ', i, ':', to_sp(rho(i)), '(Lithosphere)'
+2200,2202c2182,2184
+< write(109,*) ' '
+< write(109,*) ' NORMALIZED Viscosity of the layers from bottom to top, (Pa.s)'	
+<              i=0; write(109,*) ' ', i, ':', to_dp(vis(i)), '(Core)'
+---
+> write(99,*) ' '
+> write(99,*) ' NORMALIZED Viscosity of the layers from bottom to top, (Pa.s)'	
+>              i=0; write(99,*) ' ', i, ':', to_dp(vis(i)), '(Core)'
+2204c2186
+< 	          write(109,*) ' ', i, ':', to_dp(vis(i))    
+---
+> 	          write(99,*) ' ', i, ':', to_dp(vis(i))    
+2206c2188
+< 	 i=NLA+1; write(109,*) ' ', i, ':', ' Infinity ', '(Lithosphere)'
+---
+> 	 i=NLA+1; write(99,*) ' ', i, ':', ' Infinity ', '(Lithosphere)'
+2208,2216c2190,2198
+< 	 write(109,*) ' '
+< 	 write(109,*) ' NORMALIZED Mass of the Earth = ', to_dp(emass) 
+< 	 write(109,*) ' '
+< 	 write(109,*) ' NORMALIZED Newton constant = ', to_dp(nt) 
+< !
+< write(109,*) ' '
+< write(109,*) ' NORMALIZED Gravity at the interfaces from bottom to top'
+<             i=0; write(109,*) ' ', i, ':', to_sp(rk(i)), to_sp(gra(i)), '(Earth center)'
+<             i=1; write(109,*) ' ', i, ':', to_sp(rk(i)), to_sp(gra(i)), '(CMB)'	
+---
+> 	 write(99,*) ' '
+> 	 write(99,*) ' NORMALIZED Mass of the Earth = ', to_dp(emass) 
+> 	 write(99,*) ' '
+> 	 write(99,*) ' NORMALIZED Newton constant = ', to_dp(nt) 
+> !
+> write(99,*) ' '
+> write(99,*) ' NORMALIZED Gravity at the interfaces from bottom to top'
+>             i=0; write(99,*) ' ', i, ':', to_sp(rk(i)), to_sp(gra(i)), '(Earth center)'
+>             i=1; write(99,*) ' ', i, ':', to_sp(rk(i)), to_sp(gra(i)), '(CMB)'	
+2218c2200
+< 	         write(109,*) ' ', i, ':', to_sp(rk(i)), to_sp(gra(i))
+---
+> 	         write(99,*) ' ', i, ':', to_sp(rk(i)), to_sp(gra(i))
+2220c2202
+<             i=NLA+2; write(109,*) ' ', i, ':', to_sp(rk(i)), to_sp(gra(i)), '(External surface)'	 
+---
+>             i=NLA+2; write(99,*) ' ', i, ':', to_sp(rk(i)), to_sp(gra(i)), '(External surface)'	 
+2222,2224c2204,2206
+< !write(109,*) ' '
+< !write(109,*) ' NORMALIZED "a" constants from bottom to top' 
+< !             i=0; write(109,*) ' ', i, ':', to_sp(ac(i)), '(Core)'
+---
+> !write(99,*) ' '
+> !write(99,*) ' NORMALIZED "a" constants from bottom to top' 
+> !             i=0; write(99,*) ' ', i, ':', to_sp(ac(i)), '(Core)'
+2226c2208
+< !	          write(109,*) ' ', i, ':', to_sp(ac(i))    
+---
+> !	          write(99,*) ' ', i, ':', to_sp(ac(i))    
+2228c2210
+< !	 i=NLA+1; write(109,*) ' ', i, ':', to_sp(ac(i)), '(Lithosphere)'
+---
+> !	 i=NLA+1; write(99,*) ' ', i, ':', to_sp(ac(i)), '(Lithosphere)'
+2278a2261,2292
+> !SUBROUTINE print_sp(n, m, array, iunit)
+> !use FMZM
+> !implicit NONE
+> !type(fm) array(n,m)
+> !integer IUNIT, i, j, n, m 
+> !real*8 array_dp(n,m) 
+> !
+> !do i=1, n
+> !do j=1, m 
+> !array_dp(i,j) = to_dp(array(i,j))
+> !enddo
+> !enddo
+> !do i=1, n
+> !write(iunit,'(100(D18.8))') (array_dp(i,j),j=1, m)
+> !enddo
+> !close(IUNIT)  
+> !END SUBROUTINE print_sp	
+> !
+> !subroutine determinant (n, a, d)
+> !use FMZM
+> !implicit NONE
+> !integer N
+> !type(fm) d, a(n,n)
+> !
+> !d= a(1,1)*( a(2,2)*a(3,3)-a(2,3)*a(3,2)) - & 
+> !a(1,2)*( a(2,1)*a(3,3)-a(2,3)*a(3,1)) + &
+> !a(1,3)*( a(2,1)*a(3,2)-a(2,2)*a(3,1))
+> !end subroutine determinant
+> 
+> 
+> 
+> 

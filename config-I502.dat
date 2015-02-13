@@ -1,0 +1,454 @@
+!
+!
++- - - - - - - - - - - - - - - - - - - -  +
+|+-------------------------------------- +| 
+||                                       ||
+||   File "config.dat" for SELEN 3.2     ||
+||                                       ||
+|+---------------------------------------+|
++- - - - - - - - - - - - - - - - - - - - -+
+!
+!
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+The user can configure SELEN by the switches below. Any option is written within 
+primes as 'option'. A three-digits numerical code is provided for each entry, 
+which must be aligned left and must not be modified. All the other text parts 
+are in free format. 
+
+In section 1), the user supplies the spatial resolution, the ice sheets distribution, 
+and the Earth model viscoelastic structure. This allows one to solve the Sea Level 
+Equation but no graphical output is obtained. 
+
+In section 2), a number of optional outputs can be scheduled, including tables and 
+plots of numerical results. The required GMT scripts are authomatically generated 
+according to the options chosen.  
+
+For help, comments, or suggestion, you can contact the authors at the addresses  
+below or consult the SELEN 3 web page at http:// GGG GGGG GGGG
+
+Giorgio Spada <giorgio DOT spada AT gmail DOT com> 
+Florence Colleoni <flocolleoni AT gmail DOT com>
+Paolo Stocchi <surferpaolo AT gmail DOT com>
+
+Revised on June 2010 by GS for version "SELEN 3.1" with the g95 compiler  
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!
+!
+! CONFIGURATION FILE starts HERE --- CONFIGURATION FILE starts HERE ---CONFIGURATION FILE starts HERE 
+!
+!
++- - - - - - - - - - - - - - - - - - - - - +
+|+----------------------------------------+| 
+||                                        ||
+||           1) SELEN  settings           ||
+||                                        ||
+|+----------------------------------------+|
++- - - - - - - - - - - - - - - - - - - - - +
+!
+!
+====> PATH of working directory 
+999    Path of working directory '/Users/giorgiospada/LAVORI/SELEN323'    
+!
+====> SYSTEM SETTINGS 
+997    Enable OpenMP & number of threads                           'n'  '8'    [NOT YET IMPLEMENTED!]
+996    Use MPI & number of tasks                                   'n'  '8'    [NOT YET IMPLEMENTED!]
+995    Temporary directory for PX and SH files                     'n'  'MPI'  [NOT YET IMPLEMENTED!]
+998    Platform                                                    '1'
+Supported platforms
+   :1:  gfortran on OSX 
+    :2:  ifort on OSX
+     :3:  gfortran on Linux or Windows (via Cygwin)
+      :4:  ifort on Linux
+       :5:  64-bit Cygwin/MINGW cross-compiler on Windows
+	:6:  32-bin Cygiwn/MINGW cross-compiler on Windows
+	 :7:  g95 on any system
+!	 
+====> SOLUTION of the SLE -----------------------------------------------------
+000    Iterations & mode of solution                            '3'    '1' 	    						 	
+!
+Available modes:   
+        Gravitationally self-consistent (GSC):                1
+        Elastic GSC:                                         2 
+	"Eustatic" :                                        3 
+	"Woodward":                                        4 
+	"No Ice":                                         5  
+!
+====> MAXIMUM HARMONIC DEGREE -------------------------------------------------
+001    LMAX     				              '72'  
+
+====> "Degee 1" and reference frame -------------------------------------------
+002    Includes degree 1 Love numbers (CM/CE frames)          'y'  'CM'   
+!   
+!
+====> TEGMARK RESOLUTION ------------------------------------------------------
+015    R                                                        '24'
+
+====> STYLE for the computation of RATES (derivatives)    
+!      [1 for one-step, 2 for two-steps]       
+018    IDER                                                     '2'   \2\
+!
+-------------------------------------------------------------------------------
+====>  Love Numbers ---- Love Numbers ---- Love Numbers ---- Love Numbers -----
+-------------------------------------------------------------------------------
+!\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+!
+! --- External Love numbers [elastic analysis]
+035    External elastic LNs & file                             'n'   'LNs-JPBoy.txt' 
+036     You need a tidal analysis?                          'n'    
+!
+! --- Love numbers by TABOO [v-e analysis] 
+040    TABOO & rheological profile                     'y' '3' '2'  'vsc_VM2r.dat'                 
+045    You need a tidal analysis?                     'y'
+!
+!-----> More TABOO rheological models        
+!       	       :'3' '8'  'vsc_BENCH.dat' : 
+!       	      :vsc_I3GJXM.dat: 
+!	  	     :vsc_VP2.dat: 
+! 	  	   :'3' '2'  'vsc_KL_MEDN.dat'
+!	  	  :vsc_VM2.dat:  
+!    	  	 :vsc_I3G.dat: 
+! 	  	:vsc_VM_U.dat: 
+!              :vsc_KL05.dat:
+!             :'2' '0'  'vsc_I3GKKC.dat':
+!            :'3' '2'  'vsc_KL05.dat':
+!           :'3' '2'  'vsc_I3G.dat': 
+!          :'2' '0'  'vsc_I3GKKD.dat':
+!        :'3' '8'  'vsc_BENCH.dat' :
+!       :'3' '2'  'vsc_VM2.dat':
+!      :'3' '2'  'vsc_KL10.dat':
+!  '3' '2'  'vsc_VM2r.dat'  
+!
+! --- by ALMA [v-e analysis] :
+055    ALMA & rheological profile:                   'n'  'vsca_SANT.dat' 
+056    ALMA Love numbers exist for this profile           'n'               
+!
+!-----> More ALMA rheological models   :vsca_VM2_hrmod.dat: 
+!				      :vsca_KL65-lm10.dat:
+!				     :vsca_GS00.dat:
+!				    :vsca_KL65-um05.dat: 
+!				   :vsca_CIAN.dat:
+!				  :vsca_VM2_hrmod.dat:
+!				 :vsca_KL_nom_GR.dat:  
+!  			        :vsca_VM2NBLVZ_av.dat:
+!			       :vsca_SANT.dat:
+!
+!\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
+-------------------------------------------------------------------------------
+------ Love Numbers ---- Love Numbers ---- Love Numbers ---- Love Numbers -----
+-------------------------------------------------------------------------------
+!
+!
+====> POLAR MOTION (by normal modes) ------------------------------------------
+007    Polar Motion Transfer function                         'y'         
+008    Direct effect of load on PM                                 'y'       
+009    Direct and indirect effect (rotational feedback)                'y'          
+!
+====> COASTLINES --------------------------------------------------------------
+005    Evolving coastlines (y/n), topo data & iterations       'n' 'etopo5.xyz'  '3' 
+006    A new pixelized topography  (y/n)                       'y' 'px-topo-r44.dat'
+!
+
+====> ICE MODEL --------------------------------------------------------------- 
+!
+! One of three possible ice models: 
+! ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+!      1) Holocene ice model e.g. ICE-5G (type 'ho')
+!      2) Present-day ice model melting in one step  (type 'po')
+!      3) Present-day ice model melting in multi-steps   (type 'pm')
+!
+020    Ice file name                           #glac_VB_REV.txt#  'ice5g.dat'      
+025    Type of ice file                               'ho'
+026    Time step (ka) for <<ho>> and <<pm>>          '1.0' \0.010\ 
+!
+!
+!-----> Other data available:
+!
+!     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!      GIA               ER Greenland       ER Antarctica 
+!     ['ho', step=1.]    ['po']             ['po']              
+!     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 				     
+!     :imed1.dat:					
+!     :anu05b.dat:			   :anta_ij_U.dat:
+!     :ice5g.dat:	:gree_3gU100.dat:  :anta_ijU100.dat:
+!     :ice5g_and.dat:	:gree_3gU100.dat:  :anta_ijU100.dat: 
+!     :ice5g_ant.dat:	:greenU.dat:	   :anta_ij_U2.dat:
+!     :ice5g_fen.dat:	:greeM2RR.dat:     :anta_VB_REV.txt:
+!     :ice5g_gre.dat:	:greeGRAC.dat:     
+!     :ice5g_icl.dat:	:greeM3DefU.dat:   
+!     :ice5g_nwz.dat:	:greeM3Def.dat:    ~~~~~~~~~~~~~~~~~~~~
+!     :ice5g_lau.dat:	:greeM3R.dat:       ER Small glaciers   
+!     :ice5g_ant.dat:	:greeM3RU.dat:      ['po']	 
+!     :ice3g_ant.dat:	:green0.dat:  	   ~~~~~~~~~~~~~~~~~~~~  
+!     :disk_off.dat:	:greeMC0.dat:	    :glac_6103.dat: 
+!     :icap_on.dat:	:greeGRAC.dat:	    :glac_mdU100.dat: 
+!     :icap_pm.dat:	:greeGRAU.dat:	    :glac_mdU200.dat:
+!                       'gree_3gU100.dat'    :rett3.dat :
+!                       'gree_VB_REV.txt'
+!      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    ~~~~~~~~~~~~~~~~~~~~~
+!       Transitional glaciers & others     ice2sea data 
+!       ['ho']                             [pm]
+!      ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~    ~~~~~~~~~~~~~~~~~~~~
+!      :tran0.dat:                         :grd-ruu-MLIK.pix: 
+!      :rett0.dat:			   :grd-ruu-UBO1.pix:
+!                                          :grd-ruu-UBO2.pix:
+!                                          :grd-ruu-UBOR.pix:
+!
+!
+!
+030    Prepare a new SH ice file?   'y'   'ice5g-l72.dat'
+!
+!-----> Other data available:
+!
+!     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!      Holocene (h)	    Greenland (p)        Antarctica (p)	   
+!     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+!     :imed1-l128.dat:     :greeM2RR-l128.dat:  :ant5g-l128.dat:   
+!     :anu05b-l128.dat:    :greeGRAC-l60.dat:   :anta100-l128.dat: 
+!     :ice5g-l128.dat:     :greeM3R-l60.dat:
+!     :ice5g-l2.dat:       :greeM3DEF-l128.dat:
+!     :ice5g-l72.dat:
+!     :ice5g_fen-l128.dat: :greeMC0-l128.dat: 
+!     :ice5g_gre-l128.dat: :greeM3R-l128.dat: 
+!     :ice5g_icl-l128.dat: :greeM3RU-l128.dat:
+!     :ice5g_lau-l128.dat: :green0-l36:         ~~~~~~~~~~~~~~~~~~~~
+!     :ice5g_nwz-l128.dat: :greeM3R-l60.dat:	 Small glaciers (p)
+!     :ice5g_and-l128.dat: :greeU100-l128.dat:	~~~~~~~~~~~~~~~~~~~~ 
+!     :ice5g_ant-l128.dat: 'gree-3GU100-l128' 	:glac6103-l28.dat: 
+!     :icap_on128.dat:   			:glacU100-l128.dat:
+!     :icap_pm-l36.dat:                         :glac-VB-REV-l128.dat:
+!     :icpoff-l36.dat:
+!     :ice3gA-l72.dat:
+!     :ij05mod.dat:
+!     :ice3g-l72.dat:
+!     :ice3g-l128.dat:
+! 
+!      ~~~~~~~~~~~~~~~~~~~~            ~~~~~~~~~~~~~~~~~~~~
+!       Transitional glaciers	        ice2sea glaciers
+!       ['h']       		        ['h']	    
+!      ~~~~~~~~~~~~~~~~~~~~ 	       ~~~~~~~~~~~~~~~~~~~~ 
+!      :tran0-l12.dat:	               'grd-ruu-UBO2-l128.dat' 
+!      :tranl-l72.dat:                 'grd-ruu-UBO1-l128.dat'
+!      'rect0-l128.dat'                'grd-ruu-MKIL-l128.dat'  N.B. 
+!      'rect0-l72.dat' 	               'grd-ruu-MLKR-l128.dat' 
+!                                      'grd-ruu-UBOR-l128.dat'  	      
+!
+!
+!
+====> SPHERICAL HARMONICS at PIXELS (SH) --------------------------------------
+070    A new SH file                            'y'  'sh-r24-l72.bin'   
+!
+!	     :sh-r44-l128.bin: 
+!  	    :sh-r44-l60.bin:	       
+!          :sh-r14-l24.bin:
+!         :sh-r36-l72.bin:
+!        :sh-r13-l2.bin:
+!       :sh-r12-l12.bin:
+!
+====> PRESENT-DAY OCEAN FUNCTION (OF) -----------------------------------------
+075    Realistic or Zonal (r/z) OF              'r'  '25.' 
+080    A new OF SH decomposition  (y/n)           'y'  'of-l72.dat'
+!  		
+!               :of-l128.dat:						  
+!                :of-l60.dat:
+!                 :of-l24.dat:
+!                :of-l72.dat:
+!               :of-l72z.dat:
+! 
+====> REPOSITORY LABEL --------------------------------------------------------
+090    The depot name                               'I502'
+!
+!
++- - - - - - - - - - - - - - - - - - - - - +
+|+----------------------------------------+| 
+||                                        ||
+||           2) SELEN  outputs            ||
+||                                        ||
+|+----------------------------------------+|
++- - - - - - - - - - - - - - - - - - - - - +
+!
+====> EXECUTION of GMT SCRIPTS ------------------------------------------------ 
+666    Execute GMT scripts                                        'y'
+!
+!
+====> PIXELIZATION ------------------------------------------------------------
+100    Pixelization maps                                           'n'
+110    Window function evaluation & plot                 	     'n'
+!
+====> OCEAN FUNCTION (OF) & PALEO-TOPOGRAPHY -----------------------------------
+120    Present-day OF map & reconstruction 	       		      'n'
+125    Plot of present-day OF degree variance        		     'n'
+126    Paleo-topography maps                         	           'n' 
+!
+====> ICE SHEETS --------------------------------------------------------------
+130    Maps of original ice sheets                    		    'n' 
+135    Plot of Equivalent Sea Level (ESL) [<<ho>> ice models]               'n' 
+137    Plot of the ESL [<<pm>> ice models]                               'n'
+140    Reconstruction & mapping of the ice sheets     		        'n'
+!
+====> EARTH MODEL SPECTRAL PROPERTIES -----------------------------------------
+150    Plot LDCs, relaxation spectrum & residues for normal modes   'n'      
+
+====> POLAR MOTION 
+310    Plot polar motion and rate of polar motion                   'n'
+
+====> RSL PREDICTIONS AT SPECIFIC SITES ---------------------------------------
+!     [Only available for LGM to Holocene ice sheets (ho)]
+!
+160    RSL analysis, database & format              'n'  'sealevel-PIRAZ.txt'  '3'
+!
+!-----> Other RSL data sets available   :'sealevel.dat' '0':
+'      :sealevel-PIRAZ.txt: :3:
+!       :'Greece.txt'  '1': 
+!        :'JoG09.txt'	'1': 
+!         :'sealevel.dat'  '0':
+!          :'MED.dat' '2':
+!           :'TUC.dat' '2':
+!            :'sealevel-Israel.dat' '3':
+!             :'sealevel-Il-ET.txt' '3':
+!              :'slv-Il-Ft.txt' '3':
+!       	:'seal-ptgv1.txt' '3':
+!              :'sealevel-andy.txt'  '3':
+!            :'sealevel-NIC.txt' '3':
+!
+170    Plot of RSL sites distribution                      'y' 
+180    Site-by-site RSL predictions vs data & plots         'y'  'y'
+190    Scatterplot of RSL data & predictions       	     'n' 
+200    Misfit between RSL data & predictions                  'n'
+205    Table with all RSL data & predictions                   'y'
+!
+====> RSL REGIONS -------------------------------------------------------------
+!      [Only available for LGM to Holocene ice sheets (ho)]
+!
+210    Gobal RSL zones  	                           'n'
+!
+215    Regional RSL contour lines                           'n'   'rsl-region.dat'
+!       
+!          'rsl-region.dat'
+!           'rsl-reg-TUC.dat'
+!            'rsl-region-Is.dat'
+!             'rsl-region.tuc'
+!
+====> SEA LEVEL CHANGE AT TIDE-GAUGE STATIONS --------------------------------- 
+!      [Only available for LGM to Holocene ice sheets (ho)]
+!
+220    Tide-gauge analysis & database with format   'n' 'rlr-new-psmslR2.txt' '1'     
+!
+!       'y' 'rlr-trends.txt'  '0'  
+!        'n' 'rlr-new-psmsl.txt' '1' 
+!         'y' 'rlr-new-psmslR2.txt' '1'  
+!
+230    Plot of TG stations distribution                        'y'
+240    TG data scatterplot [only for format <<0>>]               'n' 
+250    Table of S, N, and U-dot predictions at TG sites            'y'  
+!
+!
+!
+====> ELASTIC REBOUND  ---ELASTIC REBOUND  --ELASTIC REBOUND  --ELASTIC REBOUND  --IN PROGRESS
+!
+! [Only available for LGM to Holocene ice sheets (option ho)]
+!
+!
+!         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+! ---- 1) Elastic rebound: one-step melting ("po" ice type)
+!         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+!
+!        Here the user can configure SELEN to study the Elastic rebound forced by:
+! 
+!           a melting episode in *Greenland* [switch #705], or
+!           a melting episode in *Antarctica* [#715], or 
+!           a melting episode across *small glaciers* [#730]. 
+!
+700    General switch for the melting episode                          'n'
+!
+702    Pixelized (1) or 1^ x 1^ pixel-registered lon-lat grid (2)     '1'
+!
+705    Map for Greenland (S, U, N) global and/or regional         'n'   'n'           
+715    Map for Antarctica (S, U, N) global and/or regional         'n'   'n'   
+730    Map for Small glaciers (S, U, N) only global                 'n'   
+!
+740    (S, U, N) at geodetic points & filename             'n' 'rlr-new-psmslR3.txt' '1'  
+!        
+!           'y' 'rlr-new-psmsl.txt' '1'  
+!             'y' 'GNET_R.dat' '0' 
+!
+!
+!         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+! ---- 2) Elastic rebound: multi-step melting ("pm" ice type)
+!         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+!
+!        Here the user can configure SELEN to study the elastic rebound forced by 
+!        the melting of a surface load that occurs by a sequence of equal steps. 
+!        The number of steps is a ice model datum, the duration is given in option 
+!        026 above...    
+!  
+800     General switch for the multi-step melting               'n'
+!
+830     Includes GIA effects on all predictions below            'n'  
+!
+!          Note: GIA corrections are expected in the folder "wdir/DATA/GIA-corrections", as:
+!          1) MAPS (e.g. "sdotmap.dat") with the same LMAX and RES values of the current run,  
+!          2) A table of predictions at the same geodetic sites of this run 
+!
+811     Maps of S and S-\dot              'n'   'n'
+812     Maps of N and N-\dot              'n'   'n'
+813     Maps of U and U-\dot              'n'   'n'  
+!
+820     Predictions at geodetic points in filename    'n' 'rlr-new-psmslR3.txt' '1'
+!
+!                         'n' 'rlr-new-psmslR2.txt' '1' 
+!                         'y' 'low-elevation.txt' '1'
+!          Only databases of type '1' are allowed in input for the moment 
+!          GIA corrections also must have the same format 
+!          
+!
+! ...... ...... ...... ...... ...... ...... ...... ...... 
+! ...... ...... ...... ...... ...... ...... ...... ...... 
+! ...... ...... ...... ...... ...... ...... ...... ......
+!
+!
+!
+!
+====> GLOBAL PRESENT-DAY RATES ------------------------------------------------ IN PROGRESS
+!
+!     [Only available for LGM to Holocene ice sheets (option ho)]
+!
+290   Global maps                                      'y' 
+!
+300   Pixelized (1) or 1^ x 1^ pixel-registered lon-lat grid (2)     '1'
+!
+291   dot S	   S is sea level change                        'y'     
+292   dot U	   U is vertical displacement			 'y'  
+293   dot N	   N is the geoid height variation		  'y'  
+299   dot G	   G is the normalized gravity potential	   'y'
+301   dot EWH      EWH is the <<equivalent weater height>>          'y'    ----- NEW 
+294   dot FA	   FA is the free air gravity anomaly		    'n'  
+295   dot SS	   SS is the solid surface gravity anomaly         'n' 
+296   dot LO_I     LOI is the ice load                           'n'
+297   dot LO_O       LOO is the ocean load                     'n'
+298   dot LO_T     LOT is the total load                      'n'
+!
+====> REGIONAL PRESENT-DAY RATES ---------------------------------------------- 
+!
+!     [Only available for LGM to Holocene ice sheets (option ho)]
+!
+500    Regional maps of dot S, U, & N                      'n'	     
+501      -1 Italy                                    'n'
+502      -2 Mediterranean                             'y'
+503      -3 Europe     		                       'n'
+504      -4 Fennoscandia   			        'n'
+505      -5 Greenland   			         'n'
+506      -6 North America  			        'n'
+507      -7 Antarctica   		              'n'
+!
+====> 3D VELOCITY AT GEODETIC POINTS ------------------------------------------
+!
+!     [Only available for LGM to Holocene ice sheets (option ho)]
+!
+270    -Up, North, East, S, and N rates for sites in file            'n' 'GNET_R2.dat' *site_loc.txt*
+275    -3D regional maps                                           'n' '3d-regions.dat'
+!
+====> STOKES COEFFICIENTS (SC) ------------------------------------------------
+280    Range of harmonic degrees      'y'  '0'  '12'   
+!
+! --- END of CONFIGURATION FILE --- END of CONFIGURATION FILE --- END of CONFIGURATION FILE 
+!

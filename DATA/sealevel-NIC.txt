@@ -1,0 +1,51 @@
+! ------------------------------------------------------------------------------------
+! Data provided by Andy - Liverpool University - June 2011 
+!
+! * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+! June, 2011: 
+! This Table has been edited by Giorgio Spada 
+! 
+! 
+! * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+! About the FORMAT: 
+! Lines beginning with "!" are counted as headers. 
+! The data format is FREE, and defined as follows. All lines are mandatory. 
+! Record 1: A three digits integer (code)
+! Record 2: Site name with GPS Way Point code 
+! Record 3: a Reference or a comment 
+! Record 4: Lon, Lat, number of data observations in this set  
+! Record 5...: '2', counter, time  BP   (yrs), time error(yrs), asl (m), asl error (m)  
+! ... another code ... 
+! ------------------------------------------------------------------------------------- 
+! 0123456789012345678901234567890123456789 <<< do not exceed 40 characters! 
+!
+101 -------------------------------------- 101
+Site: Pavlopetri      
+ Country: Mediterranean - Data by Nic Flemming        
+ 22.987594   36.516444     26
+2   1    100.   10.    0.0     1.0 
+2   1    200.   10.    0.0     1.0 
+2   1    500.   10.    0.0     1.0 
+2   1   1000.   10.    0.0     1.0 
+2   1   1500.   10.    0.0     1.0
+2   1   2000.   10.    0.0     1.0 
+2   1   2500. 	10.    0.0     1.0
+2   1   3000.   10.    0.0     1.0 
+2   1   3500. 	10.    0.0     1.0
+2   1   4000.   10.    0.0     1.0 
+2   1   4500. 	10.    0.0     1.0
+2   1   5000.   10.    0.0     1.0 
+2   1   5100. 	10.    0.0     1.0
+2   1   5200. 	10.    0.0     1.0
+2   1   5300. 	10.    0.0     1.0
+2   1   5400. 	10.    0.0     1.0
+2   1   5500. 	10.    0.0     1.0
+2   1   5600. 	10.    0.0     1.0
+2   1   5700. 	10.    0.0     1.0
+2   1   5800. 	10.    0.0     1.0
+2   1   5900. 	10.    0.0     1.0
+2   1   6000. 	10.    0.0     1.0
+2   1   7000.   10.    0.0     1.0 
+2   1   8000.   10.    0.0     1.0 
+2   1   9000.   10.    0.0     1.0 
+2   1  10000.   10.    0.0     1.0 

@@ -1,0 +1,48 @@
+! ------------------------------------------------------------------------------------
+! Data provided by Zanchetta project PRIN 2008  
+!
+! * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+! March, 2011: 
+! This Table has been edited by Ilaria Isola. 
+! 
+! 
+! * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+! About the FORMAT: 
+! Lines beginning with "!" are counted as headers. 
+! The data format is FREE, and defined as follows. All lines are mandatory. 
+! Record 1: A three digits integer (code)
+! Record 2: Site name with GPS Way Point code 
+! Record 3: a Reference or a comment 
+! Record 4: Lon, Lat, number of data observations in this set  
+! Calibration data set: marine09.14c
+! Reimer et al. 2009  
+! Record 5...: '2', counter, time  BP   (yrs), time error(yrs), asl (m), asl error (m)  
+! ... another code ... 
+! ------------------------------------------------------------------------------------- 
+! 0123456789012345678901234567890123456789 <<< do not exceed 40 characters! 
+!
+101 -------------------------------------- 101
+Cabo Raso WP39 Aulacomya atra      
+our data         
+-65.24  -44.34  1    
+1   1   6467. 40.    3.5     1
+102 -------------------------------------- 102
+Puerto Deseado WP344 Nacella deaurata      
+our data  
+-65.86 -47.75   1
+1   1   499. 23.   -0.5     1
+103 -------------------------------------- 103
+Puerto Deseado WPi383         
+our data  
+-65.86 -47.75  1 
+1   1   3383. 35.    3.5     1 
+104 -------------------------------------- 104
+Camarones Nord WPi441 littoral terrace       
+Schellmann & Radke 2010  
+-65.73 -44.80   1
+1   1   5940. 42.   3.77     0.2
+105 -------------------------------------- 105
+Bahia Bustamante WP139 Protothaca ant.        
+our data  
+-66.54 -45.14   1
+1   1   5630. 48.   12     2

@@ -1,0 +1,61 @@
+! ------------------------------------------------------------------------------------
+!
+! Originally named "sealevel-ISRAEL.txt"
+!
+! * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * 
+! About the FORMAT: 
+! Lines beginning with "!" are counted as headers. 
+! The data format is FREE, and defined as follows. All lines are mandatory. 
+! Record 1: A three digits integer (code)
+! Record 2: Site name with comments 
+! Record 3: a Reference or a comment 
+! Record 4: Lon, Lat, number of RSL observations in this set  
+! Record 5...: '1', counter, time AD/BC (yrs), time error(yrs), RSL (m), RSL error (m) 
+! or, alternatively:  
+! Record 5...: '2', counter, time  BP   (yrs), time error(yrs), RSL (m), RSL error (m)  
+! ... another code ... 
+! ------------------------------------------------------------------------------------- 
+! 0123456789012345678901234567890123456789 <<< do not exceed 40 characters! 
+!
+101 -------------------------------------- 101
+Chiavari plain 
+Spigolo N Duomo Chiavari          
+9.323895  44.316365  3    
+2   1   1000.    10.    0.     1. 
+2   2   2000.    10.    0.     1.
+2   3   3000.    10.    0.     1.
+102 -------------------------------------- 102
+Luni plain 
+Sopigolo N Casale porta W area archeo        
+10.014618  44.064979  3    
+2   1   1000.    10.    0.     1. 
+2   2   2000.    10.    0.     1.
+2   3   3000.    10.    0.     1.
+103 -------------------------------------- 103
+Pisa plain 
+Spigolo NW Sagrato Duomo Pisa 
+10.395023 43.723506  3    
+2   1   1000.    10.    0.     1. 
+2   2   2000.    10.    0.     1.
+2   3   3000.    10.    0.     1.
+104 -------------------------------------- 104
+Rapallo plain 
+Spigolo S Gervasio e Protasio
+9.229701 44.349324  3    
+2   1   1000.    10.    0.     1. 
+2   2   2000.    10.    0.     1.
+2   3   3000.    10.    0.     1.
+105 -------------------------------------- 105
+Sestri Levante plain 
+Spigolo N Chiesa S. Maria 
+9.39295 44.269999  3    
+2   1   1000.    10.    0.     1. 
+2   2   2000.    10.    0.     1.
+2   3   3000.    10.    0.     1.
+106 -------------------------------------- 106
+Varignano
+Spigolo N casale molo archeo  
+9.841547 44.063893  3    
+2   1   1000.    10.    0.     1. 
+2   2   2000.    10.    0.     1.
+2   3   3000.    10.    0.     1.
