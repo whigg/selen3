@@ -12,8 +12,8 @@
 !
  CHARACTER*12 HEADER 
  CHARACTER*2 LABCHAR(0:NN+1)
- INTEGER I, J, K, L, P, IJ, IS, LJ, MJ, LI, DOM, IND, J21, NANCH, ISTEP, J_INDEX
- INTEGER, ALLOCATABLE :: LL(:), MM(:), DM(:), ANC(:), WET(:)     
+ INTEGER I, J, K, L, P, IJ, IS, LJ, MJ, LI, KT, DOM, IND, J21, NANCH, ISTEP, J_INDEX
+ INTEGER, ALLOCATABLE :: LL(:), MM(:), DM(:), ANC(:), WET(:,:)     
 !
  REAL*4 RHOE
  REAL*4 RHOI_O_RHOE_X3, & 
@@ -21,7 +21,7 @@
 	RHOI_O_RHOW 
  REAL*8, ALLOCATABLE :: ALF(:,:), LONP(:), LATP(:), X(:,:), KPRIME(:)  
  REAL*8, ALLOCATABLE :: AAAA_AVE(:), BBBB_AVE(:), Z_ROT_AVE(:), GMU_ROT_AVE(:)  
- REAL*8 RESH, IMSH
+ REAL*8 RESH, IMSH, JUNK
 !
  REAL*8, PARAMETER :: CC=8.0394d37, & 
                       AA=8.0131d37, & 
@@ -31,7 +31,7 @@
 !
  REAL*8 ERR(0:NN+1,1:SMAX)
 !
- COMPLEX*16, ALLOCATABLE :: LONG_TABLE(:,:), OC(:), IIII(:,:), ZE(:,:) 
+ COMPLEX*16, ALLOCATABLE :: LONG_TABLE(:,:), OC(:,:), IIII(:,:), ZE(:,:) 
  COMPLEX*16, ALLOCATABLE :: HHHH(:,:),    KKKK(:,:)                   
  COMPLEX*16, ALLOCATABLE :: AAAA(:,:),    AAAA_PRIME(:,:)
  COMPLEX*16, ALLOCATABLE :: BBBB(:,:),    BBBB_PRIME(:,:)
@@ -129,11 +129,11 @@
   read(1,*) nanch  ; close(1)
 !
 ! --- Allocate memory space
- ALLOCATE( LL(JMAX), MM(JMAX), DM(JMAX), ANC(NP), WET(NP) )
+ ALLOCATE( LL(JMAX), MM(JMAX), DM(JMAX), ANC(NP), WET(NP,0:NN+1) )
  ALLOCATE( ALF(JMAX,NANCH), LONP(NP), LATP(NP), X(NP,0:NN+1) )
  ALLOCATE( AAAA_AVE(0:NN+1), BBBB_AVE(0:NN+1) ) 
  ALLOCATE( GMU_ROT_AVE(0:NN+1), Z_ROT_AVE(0:NN+1) )
- ALLOCATE( LONG_TABLE(0:LMAX,NP), OC(JMAX) )
+ ALLOCATE( LONG_TABLE(0:LMAX,NP), OC(JMAX,0:NN+1) )
  ALLOCATE( IIII(JMAX,0:NN+1), ZE(JMAX,0:NN+1), SE(JMAX,0:NN+1) )
  ALLOCATE( AAAA(JMAX,0:NN+1), AAAA_PRIME(JMAX,0:NN+1) )
  ALLOCATE( BBBB(JMAX,0:NN+1), BBBB_PRIME(JMAX,0:NN+1) )
@@ -251,12 +251,12 @@
 ! --- Computing the eustatic Z array... ===========================
 	ZE(:,:) = (0D0,0D0)  		
 	DO K=0,NN+1	
-		ZE(:,K) = - RHOI_O_RHOW*(IIII(1,K)/OC(1))*OC(:)
+		ZE(:,K) = - RHOI_O_RHOW*(IIII(1,K)/OC(1,K))*OC(:,k)
 	ENDDO
 !
 ! --- Computing the eustatic S array... ===========================
 	SE(:,:) = (0D0,0D0)
-	SE(1,:) = - RHOI_O_RHOW*(IIII(1,:)/OC(1)) 
+	SE(1,:) = - RHOI_O_RHOW*(IIII(1,:)/OC(1,:)) 
 !
 ! === Computing the A array... ====================================
 !
@@ -278,7 +278,7 @@
 		AAAA_AVE(K)=0D0
 		DO J=1, JMAX 
 		AAAA_AVE(K) = AAAA_AVE(K) + & 
-		          DM(J)*REAL(OC(J)*CONJG(AAAA(J,K)))/OC(1)  
+		          DM(J)*REAL(OC(J,K)*CONJG(AAAA(J,K)))/OC(1,K)  
 		ENDDO
 	ENDDO 
 !
@@ -308,12 +308,11 @@
 !$OMP       SCHEDULE(GUIDED)
 	DO J=1, JMAX 
 	    DO I=1, NP 
-	    	IF(WET(I)==1) THEN
-		    DO K=0, NN+1
-			HHHH(J,K) = HHHH(J,K) + & 
-			X(I,K)*ALF(J,ANC(I))*CONJG(LONG_TABLE(MM(J),I))  
-		    END DO
-		END IF
+		   DO K=0, NN+1
+		    IF(WET(I,K)==1) THEN
+			   HHHH(J,K) = HHHH(J,K) + X(I,K)*ALF(J,ANC(I))*CONJG(LONG_TABLE(MM(J),I))  
+		    END IF
+		   END DO
 	    ENDDO
 	ENDDO
 !$OMP END PARALLEL DO
@@ -368,7 +367,7 @@
 		BBBB_AVE(K)=0D0
 		DO J=1, JMAX 
 		BBBB_AVE(K) = BBBB_AVE(K) + & 
-		          DM(J)*REAL(OC(J)*CONJG(BBBB(J,K)))/OC(1)
+		          DM(J)*REAL(OC(J,K)*CONJG(BBBB(J,K)))/OC(1,K)
 		ENDDO
 	ENDDO 
 !
@@ -396,11 +395,9 @@
 !$OMP       SCHEDULE(GUIDED)
 	DO J=1, JMAX 
 	    DO I=1, NP 
-	       IF(WET(I)==1) THEN
-	          DO K=0,NN+1           ! it was "1,nn+1" I do not know why... 
-		      KKKK(J,K) = KKKK(J,K) + X(I,K)*ALF(J,ANC(I))*CONJG(LONG_TABLE(MM(J),I))  
-		  ENDDO
-	       END IF
+	       DO K=0,NN+1           ! it was "1,nn+1" I do not know why... 
+ 	          IF(WET(I,K)==1) KKKK(J,K) = KKKK(J,K) + X(I,K)*ALF(J,ANC(I))*CONJG(LONG_TABLE(MM(J),I))  
+ 		   ENDDO
 	    ENDDO
 	ENDDO
 !$OMP END PARALLEL DO	 
@@ -454,7 +451,7 @@
 		GMU_ROT_AVE(K)=0D0
 		DO J=1, JMAX 
 		GMU_ROT_AVE(K) = GMU_ROT_AVE(K) + & 
-		            DM(J)*REAL(OC(J)*CONJG(GMU_ROT(J,K)))/OC(1)  
+		            DM(J)*REAL(OC(J,K)*CONJG(GMU_ROT(J,K)))/OC(1,K)  
 		ENDDO
 	ENDDO 
 	write(*,*) "    - [new] ocean average of (G-U)^rot"
@@ -494,13 +491,13 @@
 !$OMP       SHARED(WET,Z_ROT,X,ALF,ANC,LONG_TABLE,MM) &
 !$OMP       SCHEDULE(GUIDED)
 	DO I=1,NP
-	   IF(WET(I)==1) THEN
 	       DO K=0, NN+1   
+	       	   IF(WET(I,K)==1) THEN
 	           DO J=1, JMAX 
 	                 Z_ROT(J,K) = Z_ROT(J,K) + X(I,K)*ALF(J,ANC(I))*CONJG(LONG_TABLE(MM(J),I))  
 	           ENDDO
+	       	   END IF
 	       END DO
-	   END IF
 	ENDDO
 !$OMP END PARALLEL DO	
 !
