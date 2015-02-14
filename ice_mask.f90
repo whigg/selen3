@@ -44,6 +44,7 @@
 ! *** Revised GS December 2010 - implementation of ice model ICE3G
 ! *** Revised DM 2012 -- Loop parallelization
 ! Feb 2012: Implementation of the numerical derivative "in the future" 
+! Feb 2015 -- Removed the derivative in the future (DM) 
 !
 ! BUT THIS MUST BE RETHINKED 
 !
@@ -207,7 +208,8 @@
 !
 ! Time loop 
 ! - - - - -  
- DO 300 K=0, NN+2     ! Updated on February 2012 (it was "nn+1")  
+!DO 300 K=0, NN+2     ! Updated on February 2012 (it was "nn+1")  
+ DO 300 K=0, NN+1     ! Reverted back to nn+1 -- CHECK
 !
 ! open(3,file='junk.dat',status='unknown') 
 ! if(k<=9) write(3,'(a1,i1)') '0',k  

@@ -49,6 +49,7 @@
 ! Jul 1, 2013; The "FLO" ice for coupling with her models 
 ! April 11, 2014. The BENOIT (BEN) files for the collaboration with LEGOS 
 ! June 21, 2014. The ALPS file for ICELAND for the collaboration with Martin Brader!
+! Feb 14, 2015: Implementation of the evolving coastlines WITH rotational feedback
 !
 !
 ! +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -3462,10 +3463,16 @@ Write(2,*) CompileSmp, " sh_of_varoc.f90 harmonics-smp.o -o shofvaroc.exe"
 !
 If(option_rfb=='n') then
 !
-Write(2,*) "echo '--- SLE_VAROC.F90'" 
+Write(2,*) "echo '--- SLE.F90'"
+Write(2,*) CompileSmp, " sle.f90 harmonics-smp.o -o sle.exe -O3"
+!
+Write(2,*) "echo '--- SLE_VAROC.F90'"
 Write(2,*) CompileSmp, " sle_varoc.f90 harmonics-smp.o -o slevaroc.exe" 
 !
 Else
+!
+Write(2,*) "echo '--- SLE_ROTAZ_NEW.F90'"
+Write(2,*) CompileSmp, " sle_rotaz_new.f90 harmonics-smp.o -o sle.exe -O3" 
 !
 Write(2,*) "echo '--- SLE_VAROC_ROTAZ.F90'" 
 Write(2,*) CompileSmp, " sle_varoc_rotaz.f90 harmonics-smp.o -o slevaroc.exe" 
