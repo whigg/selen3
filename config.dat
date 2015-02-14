@@ -1,4 +1,5 @@
 !
+!
 +- - - - - - - - - - - - - - - - - - - -  +
 |+-------------------------------------- +| 
 ||                                       ||
@@ -98,7 +99,7 @@ Available modes:
 !
 ! --- Love numbers by TABOO [v-e analysis] 
 040    TABOO & rheological profile             'y' '3' '2' 'vsc_VM2r.dat'                  
-045    You need a tidal analysis?                     'n'
+045    You need a tidal analysis?                     'y'
 !
 !-----> More TABOO rheological models        
 !       	       :'3' '8'  'vsc_BENCH.dat' : 
@@ -139,9 +140,9 @@ Available modes:
 !
 !
 ====> POLAR MOTION (by normal modes) ------------------------------------------
-007    Polar Motion Transfer function                         'n'         
+007    Polar Motion Transfer function                         'y'         
 !!!!!!!!008    Direct effect of load on PM 'n'       
-009    Direct and indirect effect (rotational feedback)                'n'          
+009    Direct and indirect effect (rotational feedback)                'y'          
 !
 ====> COASTLINES --------------------------------------------------------------
 005    Evolving coastlines (y/n), topo data & iterations       'y' 'etopo5.xyz'  '3' 
@@ -255,7 +256,7 @@ Available modes:
 !               :of-l72z.dat:
 ! 
 ====> REPOSITORY LABEL --------------------------------------------------------
-090    The depot name                               'TS04'
+090    The depot name                               'TS03'
 !
 !
 +- - - - - - - - - - - - - - - - - - - - - +

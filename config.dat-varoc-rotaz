@@ -146,7 +146,7 @@ Available modes:
 !
 ====> COASTLINES --------------------------------------------------------------
 005    Evolving coastlines (y/n), topo data & iterations       'y' 'etopo5.xyz'  '3' 
-006    A new pixelized topography  (y/n)                       'y' 'px-topo-r20.dat'
+006    A new pixelized topography  (y/n)                       'n' 'px-topo-r20.dat'
 !
 
 ====> ICE MODEL --------------------------------------------------------------- 
@@ -278,7 +278,7 @@ Available modes:
 ====> OCEAN FUNCTION (OF) & PALEO-TOPOGRAPHY -----------------------------------
 120    Present-day OF map & reconstruction 	       		      'n'
 125    Plot of present-day OF degree variance        		     'n'
-126    Paleo-topography maps                         	           'n' 
+126    Paleo-topography maps                         	           'y' 
 !
 ====> ICE SHEETS --------------------------------------------------------------
 130    Maps of original ice sheets                    		    'n' 

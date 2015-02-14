@@ -4791,7 +4791,11 @@ Write(2,*) "./rslcpx.exe"
        Write(2,*) " echo  '---> SH_OF_VAROC.F90: SH analysis of the paleo OFs'" 
 Write(2,*) "./shofvaroc.exe"
        Write(2,*) " echo"
-       Write(2,*) " echo  '---> SLE_VAROC.F90: Solving the SLE with varying coastlines'" 
+       if( option_rfb=='n' ) then
+         Write(2,*) " echo  '---> SLE_VAROC.F90: Solving the SLE with varying coastlines'" 
+       else
+         Write(2,*) " echo  '---> SLE_VAROC_ROTAZ.F90: Solving the SLE with varying coastlines AND rotational feedback'" 
+       endif
 Write(2,*) "./slevaroc.exe"
 Write(2,'(a4)') "done"
 Write(2,*) " echo"
