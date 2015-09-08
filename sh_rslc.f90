@@ -5,7 +5,8 @@
 ! Re-touched August 2008 for v. 2.8 of SELEN
 ! Reviewed GS & FC July 2009 -  "Varying coastlines" (reprise!) 
 ! *** Reviewed GS & FC November 2009 - Porting under gfortran 
-! ***  Revised GS August 2010 - g95 - Double precision implementation
+! *** Revised GS August 2010 - g95 - Double precision implementation
+! *** Revised DM Sept 2015 - Dynamic memory allocation
 !
 !
 ! +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -40,9 +41,16 @@
  PROGRAM S
  INCLUDE "data.inc"
  INTEGER I, J
- REAL*8 LONS(NRSLC), LATS(NRSLC)
- COMPLEX*16 Y(JMAX,NRSLC)         
+ REAL*8, ALLOCATABLE :: LONS(:), LATS(:)
+ COMPLEX*16, ALLOCATABLE :: Y(:,:)         
+!REAL*8 LONS(NRSLC), LATS(NRSLC)
+!COMPLEX*16 Y(JMAX,NRSLC)         
 !
+!
+!--- Allocate memory
+!
+ ALLOCATE( LONS(NRSLC), LATS(NRSLC) )
+ ALLOCATE( Y(JMAX,NRSLC) )
 !
 !
 !------ sh_rslc.f: reading the coordinates of the RSL 
@@ -62,6 +70,12 @@
   open(7,file='shrslc.bin',status='unknown',form='unformatted') 
   write(7) y
   close(7) 
+!
+!
+!--- Deallocate memory
+!
+ DEALLOCATE( LONS, LATS )
+ DEALLOCATE( Y )
 !
  END PROGRAM S
 !

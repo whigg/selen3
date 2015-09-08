@@ -5,6 +5,7 @@
 ! Reviewed GS & FC July 2009 -  "Varying coastlines" (reprise!) 
 ! *** Reviewed GS & FC November 2009 - Porting under gfortran 
 ! *** Revised GS July 2010 - g95 - Double precision implementation
+! *** Revised DM Sept 2015 - Dynamic memory allocation
 ! 
 ! +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
 ! Copyright (C) 2008 Giorgio Spada, Florence Colleoni, and Paolo Stocchi 
@@ -49,17 +50,27 @@
  INTEGER, PARAMETER :: NANCH=float(NP)/7. 
  INTEGER ICO, DOM, NWET, NPIX, NDATA, IUNIT  
  INTEGER I, J, K, N, IK, MJ, N10, N11, N20, N21
- INTEGER WET(NP), ANC(NP), MM(JMAX) 
- REAL*8 RSL, LONP(NP), LATP(NP), SLC(NP,0:NN), & 
-        PRSL(NP,0:NN), AVE(0:NN), ALF(JMAX,NANCH) 
+ INTEGER, ALLOCATABLE :: WET(:), ANC(:), MM(:) 
+ !INTEGER WET(NP), ANC(NP), MM(JMAX) 
+ ! ----****----****----****----****----****----****----****----****----**** FINO QUI
+ REAL*8 RSL
+ REAL*8, ALLOCATABLE :: LONP(:), LATP(:), SLC(:,:), PRSL(:,:), AVE(:), ALF(:,:)
+ !REAL*8 RSL, LONP(NP), LATP(NP), SLC(NP,0:NN), & 
+ !       PRSL(NP,0:NN), AVE(0:NN), ALF(JMAX,NANCH) 
  REAL*8 X10, X11, X20, X21
- COMPLEX*16 S(JMAX,0:NN), LONG_TABLE(0:LMAX,NP) 
+ COMPLEX*16, ALLOCATABLE :: S(:,:), LONG_TABLE(:,:) 
+ !COMPLEX*16 S(JMAX,0:NN), LONG_TABLE(0:LMAX,NP) 
  CHARACTER*13 CJUNK
 !    
 !
 !
 !
+! --- Allocate memory
 !
+ALLOCATE( WET(NP), ANC(NP), MM(JMAX) )
+ALLOCATE( LONP(NP), LATP(NP), SLC(NP,0:NN) )
+ALLOCATE( PRSL(NP,0:NN), AVE(0:NN), ALF(JMAX,NANCH) )
+ALLOCATE( S(JMAX,0:NN), LONG_TABLE(0:LMAX,NP) )
 !
 ! --- Examining the pixels table & extracting information
 !
@@ -288,7 +299,16 @@ ENDIF
 !  
 111 continue 
 !
-  END PROGRAM CLARK
+!
+!
+! --- Release memory
+!
+ DEALLOCATE( WET, ANC, MM )
+ DEALLOCATE( LONP, LATP, SLC )
+ DEALLOCATE( PRSL, AVE, ALF )
+ DEALLOCATE( S, LONG_TABLE )
+!
+ END PROGRAM CLARK
 !
 !
 !

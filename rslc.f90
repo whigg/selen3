@@ -5,6 +5,7 @@
 ! Reviewed GS & FC July 2009 -  "Varying coastlines" (reprise!) 
 ! *** Reviewed GS & FC November 2009 - Porting under gfortran 
 ! *** Revised GS July 2010 - g95 - Double precision implementation 
+! *** Revised DM Sept 2015 - Dynamic memory allocation
 !
 !
 ! +-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+-+
@@ -50,12 +51,20 @@
  CHARACTER*20 DATE, TIMC                
  CHARACTER*22 FILENAME 
  CHARACTER*42 JUNK
- COMPLEX*16 YY(JMAX,NRSLC), S(JMAX,0:NN), U(JMAX,0:NN), N(JMAX,0:NN) 
- REAL*8 LONS(NRSLC), LATS(NRSLC), SLC(NRSLC,0:NN)
+ COMPLEX*16, ALLOCATABLE :: YY(:,:), S(:,:), U(:,:), N(:,:) 
+ REAL*8, ALLOCATABLE :: LONS(:), LATS(:), SLC(:,:)
+! COMPLEX*16 YY(JMAX,NRSLC), S(JMAX,0:NN), U(JMAX,0:NN), N(JMAX,0:NN) 
+! REAL*8 LONS(NRSLC), LATS(NRSLC), SLC(NRSLC,0:NN)
  REAL*8 LON, LAT, RSL, TIME
  INTEGER I, J, K, DOM 
-!    
 !
+!
+!
+!
+! --- Allocate memory    
+!
+ ALLOCATE( YY(JMAX,NRSLC), S(JMAX,0:NN), U(JMAX,0:NN), N(JMAX,0:NN) )
+ ALLOCATE( LONS(NRSLC), LATS(NRSLC), SLC(NRSLC,0:NN) )
 !
 !
 ! --- Reads the coordinates of RSL "sites"
@@ -158,6 +167,9 @@
 10      continue 
         close(11)
         close(3)	
+!
+ DEALLOCATE( YY, S, U, N )
+ DEALLOCATE( LONS, LATS, SLC )
 !
  END PROGRAM SL
 !
